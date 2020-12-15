@@ -25,6 +25,8 @@ struct ContentView: View {
     @State var veinte = UserDefaults.standard.bool(forKey: "20")
     @State var cuarenta = UserDefaults.standard.bool(forKey: "40")
     @State var collection = [Int:String]()
+    @State var aux = [String]()
+    @State var contAux = UserDefaults.standard.integer(forKey: "aux")
     var body: some View {
         NavigationView{
         ZStack{
@@ -40,7 +42,7 @@ struct ContentView: View {
                     .multilineTextAlignment(.center)
                     .padding()
                     .overlay(Capsule(style: .continuous).stroke(Color.white, style: StrokeStyle(lineWidth: 5)))
-                NavigationLink(destination: Buttons_Diez(title: self.$name, channelsName: self.$canales, collection: self.$collection,ip: self.$ip, next: self.$diez, next2: self.$veinte, next3: self.$cuarenta), isActive: self.$next){
+                NavigationLink(destination: Buttons_Diez(title: self.$name, channelsName: self.$canales, collection: self.$collection,ip: self.$ip, next: self.$diez, next2: self.$veinte, next3: self.$cuarenta,aux: self.$aux, indexAux: self.$contAux), isActive: self.$next){
                 Button(action:{
                     
                     DispatchQueue.main.async {
@@ -51,15 +53,23 @@ struct ContentView: View {
                         self.cargando.toggle()
                         getName(ip: self.ip, completionHandler:{ (nombre, canales) in
                             print(nombre,canales.count)
+                                    if(nombre != "error") {
                             self.canales = canales
                             let last = self.canales.remove(at: 0)
-                            self.canales.insert(last, at: self.canales.count)
-                            if(nombre != "error") {
-                            UserDefaults.standard.set(self.ip, forKey: "ip")
-                                if(nombre.count==31){
-                                    self.collection = [10:"03e8",11:"2",12:"3"]
-                                    
-                                    print(diez)
+                                        if(nombre.count==31){
+                                            self.canales.insert(last, at: self.canales.count-4)
+                                            UserDefaults.standard.set(self.ip, forKey: "ip")
+                                            if(self.aux.count == 0){
+                                            self.aux.append(self.canales[self.canales.count-4])
+                                            self.aux.append(self.canales[self.canales.count-3])
+                                            self.aux.append(self.canales[self.canales.count-2])
+                                            }
+                                            self.collection = [10:"03e8",11:"2",12:"3"]
+                                            print(self.aux)
+                                            self.canales.remove(at: self.canales.count-4)
+                                            self.canales.remove(at: self.canales.count-3)
+                                            self.canales.remove(at: self.canales.count-2)
+                                            self.canales.remove(at: self.canales.count-1)
                                 }
                                 
                                 print(nombre.count)
@@ -95,13 +105,24 @@ struct ContentView: View {
                         }
                         getName(ip: self.ip, completionHandler:{ (nombre, canales) in
                             print(nombre,canales.count)
-                            self.canales = canales
-                            let last = self.canales.remove(at: 0)
-                            self.canales.insert(last, at: self.canales.count)
                             if(nombre != "error") {
+                                self.canales = canales
+                                let last = self.canales.remove(at: 0)
                                 if(nombre.count==31){
-                                self.collection = [10:"03e8",11:"2",12:"3"]
-                                    
+                                    self.canales.insert(last, at: self.canales.count-4)
+                                    UserDefaults.standard.set(self.ip, forKey: "ip")
+                                    print(self.aux.count)
+                                    if(self.aux.count == 0){
+                                    self.aux.append(self.canales[self.canales.count-4])
+                                    self.aux.append(self.canales[self.canales.count-3])
+                                    self.aux.append(self.canales[self.canales.count-2])
+                                    }
+                                    self.collection = [10:"03e8",11:"2",12:"3"]
+                                    self.canales.remove(at: self.canales.count-4)
+                                    self.canales.remove(at: self.canales.count-3)
+                                    self.canales.remove(at: self.canales.count-2)
+                                    self.canales.remove(at: self.canales.count-1)
+                                    print(self.aux)
                                 }
                                 print(nombre.count)
                             name = nombre

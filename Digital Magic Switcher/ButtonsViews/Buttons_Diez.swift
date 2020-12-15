@@ -97,6 +97,8 @@ struct Buttons_Diez: View {
     @Binding var next : Bool
     @Binding var next2 : Bool
     @Binding var next3 : Bool
+    @Binding var aux : [String]
+    @Binding var indexAux : Int
     @State var showB1 : [Bool] = [false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false]
     var body: some View {
         ZStack{
@@ -108,61 +110,61 @@ struct Buttons_Diez: View {
                 if next{
                 Spacer()
                 HStack{
-                    boton(nombre:self.$channelsName,id: self.$setid1, ip: self.$ip ,num: 1, buttons: self.$showB1, collection: self.$collection, activo: self.$activo1, tamaño: 150)
-                    boton(nombre:self.$channelsName,id: self.$setid2, ip: self.$ip ,num: 2, buttons: self.$showB1, collection: self.$collection, activo: self.$activo2, tamaño: 150)
-                    boton(nombre:self.$channelsName,id: self.$setid3, ip: self.$ip ,num: 3, buttons: self.$showB1, collection: self.$collection, activo: self.$activo3, tamaño: 150)
-                    boton(nombre:self.$channelsName,id: self.$setid4, ip: self.$ip ,num: 4, buttons: self.$showB1, collection: self.$collection, activo: self.$activo4, tamaño: 150)
-                    boton(nombre:self.$channelsName,id: self.$setid5, ip: self.$ip ,num: 5, buttons: self.$showB1, collection: self.$collection, activo: self.$activo5, tamaño: 150 )
+                    boton(nombre:self.$channelsName,id: self.$setid1, ip: self.$ip ,num: 1, buttons: self.$showB1, collection: self.$collection, activo: self.$activo1, tamaño: 150, aux: self.$indexAux)
+                    boton(nombre:self.$channelsName,id: self.$setid2, ip: self.$ip ,num: 2, buttons: self.$showB1, collection: self.$collection, activo: self.$activo2, tamaño: 150, aux: self.$indexAux)
+                    boton(nombre:self.$channelsName,id: self.$setid3, ip: self.$ip ,num: 3, buttons: self.$showB1, collection: self.$collection, activo: self.$activo3, tamaño: 150, aux: self.$indexAux)
+                    boton(nombre:self.$channelsName,id: self.$setid4, ip: self.$ip ,num: 4, buttons: self.$showB1, collection: self.$collection, activo: self.$activo4, tamaño: 150, aux: self.$indexAux)
+                    boton(nombre:self.$channelsName,id: self.$setid5, ip: self.$ip ,num: 5, buttons: self.$showB1, collection: self.$collection, activo: self.$activo5, tamaño: 150 , aux: self.$indexAux)
                 }.padding()
                 Spacer()
                 HStack{
-                    boton(nombre:self.$channelsName,id: self.$setid6, ip: self.$ip ,num: 6, buttons: self.$showB1, collection: self.$collection, activo: self.$activo6, tamaño: 150)
-                    boton(nombre:self.$channelsName,id: self.$setid7, ip: self.$ip ,num: 7, buttons: self.$showB1, collection: self.$collection, activo: self.$activo7, tamaño: 150)
-                    boton(nombre:self.$channelsName,id: self.$setid8, ip: self.$ip ,num: 8, buttons: self.$showB1, collection: self.$collection, activo: self.$activo8, tamaño: 150)
-                    boton(nombre:self.$channelsName,id: self.$setid9, ip: self.$ip ,num: 9, buttons: self.$showB1, collection: self.$collection, activo: self.$activo9, tamaño: 150)
-                    boton(nombre:self.$channelsName,id: self.$setid10, ip: self.$ip ,num: 10, buttons: self.$showB1, collection: self.$collection, activo: self.$activo10, tamaño: 150)
+                    boton(nombre:self.$channelsName,id: self.$setid6, ip: self.$ip ,num: 6, buttons: self.$showB1, collection: self.$collection, activo: self.$activo6, tamaño: 150, aux: self.$indexAux)
+                    boton(nombre:self.$channelsName,id: self.$setid7, ip: self.$ip ,num: 7, buttons: self.$showB1, collection: self.$collection, activo: self.$activo7, tamaño: 150, aux: self.$indexAux)
+                    boton(nombre:self.$channelsName,id: self.$setid8, ip: self.$ip ,num: 8, buttons: self.$showB1, collection: self.$collection, activo: self.$activo8, tamaño: 150, aux: self.$indexAux)
+                    boton(nombre:self.$channelsName,id: self.$setid9, ip: self.$ip ,num: 9, buttons: self.$showB1, collection: self.$collection, activo: self.$activo9, tamaño: 150, aux: self.$indexAux)
+                    boton(nombre:self.$channelsName,id: self.$setid10, ip: self.$ip ,num: 10, buttons: self.$showB1, collection: self.$collection, activo: self.$activo10, tamaño: 150, aux: self.$indexAux)
                 }.padding()
                 Spacer()
                 }
                 if next2{
                     Spacer(minLength: 70)
                     HStack{
-                        boton(nombre:self.$channelsName,id: self.$setid1, ip: self.$ip ,num: 1, buttons: self.$showB1, collection: self.$collection, activo: self.$activo1, tamaño: .infinity)
-                        boton(nombre:self.$channelsName,id: self.$setid2, ip: self.$ip ,num: 2, buttons: self.$showB1, collection: self.$collection, activo: self.$activo2, tamaño: .infinity)
-                        boton(nombre:self.$channelsName,id: self.$setid3, ip: self.$ip ,num: 3, buttons: self.$showB1, collection: self.$collection, activo: self.$activo3, tamaño: .infinity)
-                        boton(nombre:self.$channelsName,id: self.$setid4, ip: self.$ip ,num: 4, buttons: self.$showB1, collection: self.$collection, activo: self.$activo4, tamaño: .infinity)
-                        boton(nombre:self.$channelsName,id: self.$setid5, ip: self.$ip ,num: 5, buttons: self.$showB1, collection: self.$collection, activo: self.$activo5  , tamaño: .infinity )
+                        boton(nombre:self.$channelsName,id: self.$setid1, ip: self.$ip ,num: 1, buttons: self.$showB1, collection: self.$collection, activo: self.$activo1, tamaño: .infinity, aux: self.$indexAux)
+                        boton(nombre:self.$channelsName,id: self.$setid2, ip: self.$ip ,num: 2, buttons: self.$showB1, collection: self.$collection, activo: self.$activo2, tamaño: .infinity, aux: self.$indexAux)
+                        boton(nombre:self.$channelsName,id: self.$setid3, ip: self.$ip ,num: 3, buttons: self.$showB1, collection: self.$collection, activo: self.$activo3, tamaño: .infinity, aux: self.$indexAux)
+                        boton(nombre:self.$channelsName,id: self.$setid4, ip: self.$ip ,num: 4, buttons: self.$showB1, collection: self.$collection, activo: self.$activo4, tamaño: .infinity, aux: self.$indexAux)
+                        boton(nombre:self.$channelsName,id: self.$setid5, ip: self.$ip ,num: 5, buttons: self.$showB1, collection: self.$collection, activo: self.$activo5  , tamaño: .infinity , aux: self.$indexAux)
                     }.padding()
                     Spacer()
                     HStack{
-                        boton(nombre:self.$channelsName,id: self.$setid6, ip: self.$ip ,num: 6, buttons: self.$showB1, collection: self.$collection, activo: self.$activo6, tamaño: .infinity)
-                        boton(nombre:self.$channelsName,id: self.$setid7, ip: self.$ip ,num: 7, buttons: self.$showB1, collection: self.$collection, activo: self.$activo7, tamaño: .infinity)
-                        boton(nombre:self.$channelsName,id: self.$setid8, ip: self.$ip ,num: 8, buttons: self.$showB1, collection: self.$collection, activo: self.$activo8, tamaño: .infinity)
-                        boton(nombre:self.$channelsName,id: self.$setid9, ip: self.$ip ,num: 9, buttons: self.$showB1, collection: self.$collection, activo: self.$activo9, tamaño: .infinity)
-                        boton(nombre:self.$channelsName,id: self.$setid10, ip: self.$ip ,num: 10, buttons: self.$showB1, collection: self.$collection, activo: self.$activo10, tamaño: .infinity)
+                        boton(nombre:self.$channelsName,id: self.$setid6, ip: self.$ip ,num: 6, buttons: self.$showB1, collection: self.$collection, activo: self.$activo6, tamaño: .infinity, aux: self.$indexAux)
+                        boton(nombre:self.$channelsName,id: self.$setid7, ip: self.$ip ,num: 7, buttons: self.$showB1, collection: self.$collection, activo: self.$activo7, tamaño: .infinity, aux: self.$indexAux)
+                        boton(nombre:self.$channelsName,id: self.$setid8, ip: self.$ip ,num: 8, buttons: self.$showB1, collection: self.$collection, activo: self.$activo8, tamaño: .infinity, aux: self.$indexAux)
+                        boton(nombre:self.$channelsName,id: self.$setid9, ip: self.$ip ,num: 9, buttons: self.$showB1, collection: self.$collection, activo: self.$activo9, tamaño: .infinity, aux: self.$indexAux)
+                        boton(nombre:self.$channelsName,id: self.$setid10, ip: self.$ip ,num: 10, buttons: self.$showB1, collection: self.$collection, activo: self.$activo10, tamaño: .infinity, aux: self.$indexAux)
                     }.padding()
                     Spacer()
                     HStack{
-                        boton(nombre:self.$channelsName,id: self.$setid11, ip: self.$ip ,num: 11, buttons: self.$showB1, collection: self.$collection, activo: self.$activo11, tamaño: .infinity)
-                        boton(nombre:self.$channelsName,id: self.$setid12, ip: self.$ip ,num: 12, buttons: self.$showB1, collection: self.$collection, activo: self.$activo12, tamaño: .infinity)
-                        boton(nombre:self.$channelsName,id: self.$setid13, ip: self.$ip ,num: 13, buttons: self.$showB1, collection: self.$collection, activo: self.$activo13, tamaño: .infinity)
-                        boton(nombre:self.$channelsName,id: self.$setid14, ip: self.$ip ,num: 14, buttons: self.$showB1, collection: self.$collection, activo: self.$activo14, tamaño: .infinity)
-                        boton(nombre:self.$channelsName,id: self.$setid15, ip: self.$ip ,num: 15, buttons: self.$showB1, collection: self.$collection, activo: self.$activo15, tamaño: .infinity)
+                        boton(nombre:self.$channelsName,id: self.$setid11, ip: self.$ip ,num: 11, buttons: self.$showB1, collection: self.$collection, activo: self.$activo11, tamaño: .infinity, aux: self.$indexAux)
+                        boton(nombre:self.$channelsName,id: self.$setid12, ip: self.$ip ,num: 12, buttons: self.$showB1, collection: self.$collection, activo: self.$activo12, tamaño: .infinity, aux: self.$indexAux)
+                        boton(nombre:self.$channelsName,id: self.$setid13, ip: self.$ip ,num: 13, buttons: self.$showB1, collection: self.$collection, activo: self.$activo13, tamaño: .infinity, aux: self.$indexAux)
+                        boton(nombre:self.$channelsName,id: self.$setid14, ip: self.$ip ,num: 14, buttons: self.$showB1, collection: self.$collection, activo: self.$activo14, tamaño: .infinity, aux: self.$indexAux)
+                        boton(nombre:self.$channelsName,id: self.$setid15, ip: self.$ip ,num: 15, buttons: self.$showB1, collection: self.$collection, activo: self.$activo15, tamaño: .infinity, aux: self.$indexAux)
                     }.padding()
                     Spacer()
                     HStack{
-                        boton(nombre:self.$channelsName,id: self.$setid16, ip: self.$ip ,num: 16, buttons: self.$showB1, collection: self.$collection, activo: self.$activo16, tamaño: .infinity)
-                        boton(nombre:self.$channelsName,id: self.$setid17, ip: self.$ip ,num: 17, buttons: self.$showB1, collection: self.$collection, activo: self.$activo17, tamaño: .infinity)
-                        boton(nombre:self.$channelsName,id: self.$setid18, ip: self.$ip ,num: 18, buttons: self.$showB1, collection: self.$collection, activo: self.$activo18, tamaño: .infinity)
-                        boton(nombre:self.$channelsName,id: self.$setid19, ip: self.$ip ,num: 19, buttons: self.$showB1, collection: self.$collection, activo: self.$activo19, tamaño: .infinity)
-                        boton(nombre:self.$channelsName,id: self.$setid20, ip: self.$ip ,num: 20, buttons: self.$showB1, collection: self.$collection, activo: self.$activo20, tamaño: .infinity)
+                        boton(nombre:self.$channelsName,id: self.$setid16, ip: self.$ip ,num: 16, buttons: self.$showB1, collection: self.$collection, activo: self.$activo16, tamaño: .infinity ,aux: self.$indexAux)
+                        boton(nombre:self.$channelsName,id: self.$setid17, ip: self.$ip ,num: 17, buttons: self.$showB1, collection: self.$collection, activo: self.$activo17, tamaño: .infinity, aux: self.$indexAux)
+                        boton(nombre:self.$channelsName,id: self.$setid18, ip: self.$ip ,num: 18, buttons: self.$showB1, collection: self.$collection, activo: self.$activo18, tamaño: .infinity, aux: self.$indexAux)
+                        boton(nombre:self.$channelsName,id: self.$setid19, ip: self.$ip ,num: 19, buttons: self.$showB1, collection: self.$collection, activo: self.$activo19, tamaño: .infinity, aux: self.$indexAux)
+                        boton(nombre:self.$channelsName,id: self.$setid20, ip: self.$ip ,num: 20, buttons: self.$showB1, collection: self.$collection, activo: self.$activo20, tamaño: .infinity, aux: self.$indexAux)
                     }.padding()
                     Spacer()
                 }
                 if next3{
                     Spacer(minLength: 80)
-                    Buttons_veinte(channelsName: self.$channelsName, collection: self.$collection, setid1: self.$setid1, setid2: self.$setid2, setid3: self.$setid3, setid4: self.$setid4, setid5: self.$setid5, setid6: self.$setid6, setid7: self.$setid7, setid8: self.$setid8, setid9: self.$setid9, setid10: self.$setid10, setid11: self.$setid11, setid12: self.$setid12, setid13: self.$setid13, setid14: self.$setid14, setid15: self.$setid15, setid16: self.$setid16, setid17: self.$setid17, setid18: self.$setid18, setid19: self.$setid19, setid20: self.$setid20, ip: self.$ip, activo1: self.$activo1)
-                    Buttons_veinte(channelsName: self.$channelsName, collection: self.$collection, setid1: self.$setid21, setid2: self.$setid22, setid3: self.$setid23, setid4: self.$setid24, setid5: self.$setid25, setid6: self.$setid26, setid7: self.$setid27, setid8: self.$setid28, setid9: self.$setid29, setid10: self.$setid30, setid11: self.$setid31, setid12: self.$setid32, setid13: self.$setid33, setid14: self.$setid34, setid15: self.$setid35, setid16: self.$setid36, setid17: self.$setid37, setid18: self.$setid38, setid19: self.$setid39, setid20: self.$setid40, ip: self.$ip, activo1: self.$activo1)
+                    Buttons_veinte(channelsName: self.$channelsName, collection: self.$collection, setid1: self.$setid1, setid2: self.$setid2, setid3: self.$setid3, setid4: self.$setid4, setid5: self.$setid5, setid6: self.$setid6, setid7: self.$setid7, setid8: self.$setid8, setid9: self.$setid9, setid10: self.$setid10, setid11: self.$setid11, setid12: self.$setid12, setid13: self.$setid13, setid14: self.$setid14, setid15: self.$setid15, setid16: self.$setid16, setid17: self.$setid17, setid18: self.$setid18, setid19: self.$setid19, setid20: self.$setid20, ip: self.$ip, activo1: self.$activo1,indexAux: self.$indexAux)
+                    Buttons_veinte(channelsName: self.$channelsName, collection: self.$collection, setid1: self.$setid21, setid2: self.$setid22, setid3: self.$setid23, setid4: self.$setid24, setid5: self.$setid25, setid6: self.$setid26, setid7: self.$setid27, setid8: self.$setid28, setid9: self.$setid29, setid10: self.$setid30, setid11: self.$setid31, setid12: self.$setid32, setid13: self.$setid33, setid14: self.$setid34, setid15: self.$setid35, setid16: self.$setid36, setid17: self.$setid37, setid18: self.$setid38, setid19: self.$setid39, setid20: self.$setid40, ip: self.$ip, activo1: self.$activo1,indexAux : self.$indexAux)
                     Spacer(minLength: 30)
                                         
                 }
@@ -177,7 +179,7 @@ struct Buttons_Diez: View {
                 Image(systemName: "gear")
             })
             .sheet(isPresented: self.$settings, content:{
-                TabbedSettingsViewController(channelsName: self.$channelsName, selectedName: self.$setid1, selectedName2: self.$setid2, selectedName3: self.$setid3, selectedName4: self.$setid4, selectedName5: self.$setid5,selectedName6: self.$setid6,selectedName7: self.$setid7, selectedName8: self.$setid8, selectedName9: self.$setid9, selectedName10: self.$setid10, selectedName11: self.$setid11, selectedName12: self.$setid12, selectedName13: self.$setid13, selectedName14: self.$setid14, selectedName15: self.$setid15, selectedName16: self.$setid16, selectedName17: self.$setid17, selectedName18: self.$setid18, selectedName19: self.$setid19, selectedName20: self.$setid20,selectedName21: self.$setid21, selectedName22: self.$setid22,selectedName23: self.$setid23, selectedName24: self.$setid24, selectedName25: self.$setid26,selectedName26: self.$setid26, selectedName27: self.$setid27, selectedName28: self.$setid28, selectedName29: self.$setid29, selectedName30: self.$setid30, selectedName31: self.$setid31,selectedName32: self.$setid32,selectedName33: self.$setid33,selectedName34: self.$setid34,selectedName35: self.$setid35,selectedName36: self.$setid36,selectedName37: self.$setid37,selectedName38: self.$setid38, selectedName39: self.$setid39,selectedName40: self.$setid40,next: self.$next, next2: self.$next2, next3: self.$next3, activo1: self.$activo1, activo2: self.$activo2,activo3: self.$activo3,activo4: self.$activo4,activo5: self.$activo5,activo6: self.$activo6,activo7: self.$activo7,activo8: self.$activo8,activo9: self.$activo9,activo10: self.$activo10, activo11: self.$activo11, activo12: self.$activo12,activo13: self.$activo13,activo14: self.$activo14,activo15: self.$activo15,activo16: self.$activo16,activo17: self.$activo17,activo18: self.$activo18,activo19: self.$activo19,activo20: self.$activo20, activo21: self.$activo21, activo22: self.$activo22,activo23: self.$activo23,activo24: self.$activo24,activo25: self.$activo25,activo26: self.$activo26,activo27: self.$activo27,activo28: self.$activo28,activo29: self.$activo29,activo30: self.$activo30, activo31: self.$activo31, activo32: self.$activo32,activo33: self.$activo33,activo34: self.$activo34,activo35: self.$activo35,activo36: self.$activo36,activo37: self.$activo37,activo38: self.$activo38,activo39: self.$activo39,activo40: self.$activo40)
+                TabbedSettingsViewController(channelsName: self.$channelsName, selectedName: self.$setid1, selectedName2: self.$setid2, selectedName3: self.$setid3, selectedName4: self.$setid4, selectedName5: self.$setid5,selectedName6: self.$setid6,selectedName7: self.$setid7, selectedName8: self.$setid8, selectedName9: self.$setid9, selectedName10: self.$setid10, selectedName11: self.$setid11, selectedName12: self.$setid12, selectedName13: self.$setid13, selectedName14: self.$setid14, selectedName15: self.$setid15, selectedName16: self.$setid16, selectedName17: self.$setid17, selectedName18: self.$setid18, selectedName19: self.$setid19, selectedName20: self.$setid20,selectedName21: self.$setid21, selectedName22: self.$setid22,selectedName23: self.$setid23, selectedName24: self.$setid24, selectedName25: self.$setid26,selectedName26: self.$setid26, selectedName27: self.$setid27, selectedName28: self.$setid28, selectedName29: self.$setid29, selectedName30: self.$setid30, selectedName31: self.$setid31,selectedName32: self.$setid32,selectedName33: self.$setid33,selectedName34: self.$setid34,selectedName35: self.$setid35,selectedName36: self.$setid36,selectedName37: self.$setid37,selectedName38: self.$setid38, selectedName39: self.$setid39,selectedName40: self.$setid40,next: self.$next, next2: self.$next2, next3: self.$next3, activo1: self.$activo1, activo2: self.$activo2,activo3: self.$activo3,activo4: self.$activo4,activo5: self.$activo5,activo6: self.$activo6,activo7: self.$activo7,activo8: self.$activo8,activo9: self.$activo9,activo10: self.$activo10, activo11: self.$activo11, activo12: self.$activo12,activo13: self.$activo13,activo14: self.$activo14,activo15: self.$activo15,activo16: self.$activo16,activo17: self.$activo17,activo18: self.$activo18,activo19: self.$activo19,activo20: self.$activo20, activo21: self.$activo21, activo22: self.$activo22,activo23: self.$activo23,activo24: self.$activo24,activo25: self.$activo25,activo26: self.$activo26,activo27: self.$activo27,activo28: self.$activo28,activo29: self.$activo29,activo30: self.$activo30, activo31: self.$activo31, activo32: self.$activo32,activo33: self.$activo33,activo34: self.$activo34,activo35: self.$activo35,activo36: self.$activo36,activo37: self.$activo37,activo38: self.$activo38,activo39: self.$activo39,activo40: self.$activo40, aux: self.$aux,indexAux: self.$indexAux)
             })
             
         }
@@ -194,6 +196,7 @@ struct boton: View{
     @Binding var collection : [Int:String]
     @Binding var activo : Bool
     @State var tamaño : CGFloat
+    @Binding var aux : Int
     var body : some View{
         Button(action:{
             if(activo)
@@ -232,7 +235,7 @@ struct boton: View{
         try client.write(buf!)
         var buffer = [UInt8](repeating: 0, count: 100)
         var numberOfReadBytes = try client.read(&buffer, size: 100)
-            print(nombre[0],id)
+      
         buf = stringToBytes("800c310a0000000000780000")
         try client.write(buf!)
         var x = 0
@@ -348,35 +351,64 @@ struct boton: View{
     }
     func checkLengthChannel(_ valor:Int) -> String{
         let l = String(valor)
-        print(self.collection[valor])
+        print(nombre[id].count)
         if (l.count == 1 && id != 9){
-            return "0000000000000009000ce50b43417553010\(String(0))000\(String(id+1))"
+            print("normal")
+            return "0000000000000009000ce50b43417553010\(String(aux))000\(String(id+1,radix: 16))"
            
         }
         else {
+            
+            if(nombre[id] == "Color Bars\0"){
+                print("bars")
+                return "0000000000000009000ce50b43417553010\(String(aux))\(self.collection[valor]!)"
+            }
+            if(nombre[id] == "Color 1\0"){
+                print("color")
+                return "0000000000000009000ce50b43417553010\(String(aux))07d1" // Color 1
+                
+            }
+            if (nombre[id] == "Color 2\0")
+            {
+                print("colo2")
+                return "0000000000000009000ce50b43417553010\(String(aux))07d2" // Color 2
+                
+            }
+            if (nombre[id] == "Black\0"){
+                print("black")
+                return "0000000000000009000ce50b43417553010\(String(aux))0000" // black
+                
+            }
+            if (nombre[id] == "Clean Feed 1\0"){
+                print("black")
+                return "0000000000000009000ce50b43417553010\(String(aux))1b59" // black
+                
+            }
+            if (nombre[id] == "Clean Feed 2\0"){
+                print("black")
+                return "0000000000000009000ce50b43417553010\(String(aux))1b5a" // black
+                
+            }
+            if (nombre[id] == "Preview\0"){
+                print("black")
+                return "0000000000000009000ce50b43417553010\(String(aux))271b" // black
+                
+            }
+            if (nombre[id] == "Program\0"){
+                print("black")
+                return "0000000000000009000ce50b43417553010\(String(aux))271a" // black
+                
+            }
+           
             if(valor < nombre.count-3 && valor > nombre.count-4 && nombre.count > 24){
             let r = String(id+1,radix: 16)
-            print(r)
-            return "0000000000000009000ce50b43417553010\(String(0))000\(r)"
-            }
-            if(valor==nombre.count-4){
-             
-                return "0000000000000009000ce50b43417553010\(String(0))\(self.collection[valor]!)"
-            }
-            if(valor==nombre.count-3){
-                return "0000000000000009000ce50b43417553010\(String(0))07d1"
-            }
-            if (valor == nombre.count-2)
-            {
-                return "0000000000000009000ce50b43417553010\(String(0))07d2"
-            }
-            if (valor == nombre.count-1){
-                return "0000000000000009000ce50b43417553010\(String(0))0000"
+                print("bars")
+            return "0000000000000009000ce50b43417553010\(String(aux))000\(r)"
             }
             else{
                 let r = String(10,radix: 16)
-                print(r)
-                return "0000000000000009000ce50b43417553010\(String(0))000\(r)"
+                print("ultimo")
+                return "0000000000000009000ce50b43417553010\(String(aux))000\(r)"
             }
             
             

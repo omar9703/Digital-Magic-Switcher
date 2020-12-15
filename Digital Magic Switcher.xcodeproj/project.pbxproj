@@ -19,6 +19,7 @@
 		7CA5EDCF25853B8C001B3688 /* Settings20.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CA5EDCE25853B8C001B3688 /* Settings20.swift */; };
 		7CA5EDD325853BA9001B3688 /* Settings40.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CA5EDD225853BA9001B3688 /* Settings40.swift */; };
 		7CA5EDD825859588001B3688 /* Buttons_veinte.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CA5EDD725859588001B3688 /* Buttons_veinte.swift */; };
+		7CC5657C25882495000F9960 /* AuxiliarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC5657B25882495000F9960 /* AuxiliarView.swift */; };
 		7CED8EE32581978800F19BD5 /* firstRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CED8EE22581978800F19BD5 /* firstRequest.swift */; };
 /* End PBXBuildFile section */
 
@@ -37,6 +38,7 @@
 		7CA5EDCE25853B8C001B3688 /* Settings20.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings20.swift; sourceTree = "<group>"; };
 		7CA5EDD225853BA9001B3688 /* Settings40.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings40.swift; sourceTree = "<group>"; };
 		7CA5EDD725859588001B3688 /* Buttons_veinte.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Buttons_veinte.swift; sourceTree = "<group>"; };
+		7CC5657B25882495000F9960 /* AuxiliarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuxiliarView.swift; sourceTree = "<group>"; };
 		7CED8EE22581978800F19BD5 /* firstRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = firstRequest.swift; sourceTree = "<group>"; };
 		B8EF0420927864945C862CD1 /* Pods-Digital Magic Switcher.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Digital Magic Switcher.debug.xcconfig"; path = "Target Support Files/Pods-Digital Magic Switcher/Pods-Digital Magic Switcher.debug.xcconfig"; sourceTree = "<group>"; };
 		FB207C0403CDEC554B347A1B /* Pods_Digital_Magic_Switcher.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Digital_Magic_Switcher.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -121,6 +123,7 @@
 				7CA5EDCB25853B72001B3688 /* Settings10.swift */,
 				7CA5EDCE25853B8C001B3688 /* Settings20.swift */,
 				7CA5EDD225853BA9001B3688 /* Settings40.swift */,
+				7CC5657B25882495000F9960 /* AuxiliarView.swift */,
 			);
 			path = SettingsViews;
 			sourceTree = "<group>";
@@ -246,6 +249,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7CC5657C25882495000F9960 /* AuxiliarView.swift in Sources */,
 				7CA5EDD325853BA9001B3688 /* Settings40.swift in Sources */,
 				7C7AF358258169BD0073CDA3 /* ContentView.swift in Sources */,
 				7CA5EDCF25853B8C001B3688 /* Settings20.swift in Sources */,

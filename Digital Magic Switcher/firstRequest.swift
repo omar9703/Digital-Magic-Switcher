@@ -28,13 +28,14 @@ func getName(ip :String,completionHandler: (String,[String]) -> Void){
     try client.write(buf!)
     buffer = [UInt8](repeating: 0, count: 2000)
     numberOfReadBytes = try! client.read(&buffer, size: 2000)
+    var buf2 = [UInt8](repeating: 0, count: 2000)
+    try! client.read(&buf2,size: 2000)
     var cont = 0
         print(numberOfReadBytes)
     for x in Range(32...110){
-        if(String(bytes: buffer[x...x+1], encoding: .utf8) == "4" || String(bytes: buffer[x...x+1], encoding: .utf8) == "4K")
+        if(String(bytes: buffer[x...x+1], encoding: .utf8) == "4" || String(bytes: buffer[x...x+1], encoding: .utf8) == "4K" || String(bytes: buffer[x...x+1], encoding: .utf8) == "8K")
         {
             cont = x
-            
             break
         }
         }
@@ -42,13 +43,13 @@ func getName(ip :String,completionHandler: (String,[String]) -> Void){
         var nombres = [String]()
         if(numberOfReadBytes>99 && (cont+1)>32){
         for x in Range(100...numberOfReadBytes){
-            if(String(bytes: buffer[x...x+1], encoding: .utf8) == "Pr" )
+            if(String(bytes: buffer[x...x+3], encoding: .utf8) == "InPr" )
             {
-                for y in Range((x+4)...(x+15)){
+                for y in Range((x+6)...(x+18)){
                     
                     if(buffer[y] == UInt8(0))
                     {
-                        nombres.append(String(bytes: buffer[x+4...y], encoding: .utf8)!)
+                        nombres.append(String(bytes: buffer[x+6...y], encoding: .utf8)!)
                         break
                     }
                     
@@ -59,6 +60,28 @@ func getName(ip :String,completionHandler: (String,[String]) -> Void){
             }
             
             }
+            canales = 0
+        for x in Range(0...numberOfReadBytes){
+                if(String(bytes: buf2[x...(x+3)], encoding: .utf8) == "InPr" )
+                {
+                    for y in Range((x+6)...(x+23)){
+                        
+                        if(buf2[y] == UInt8(0))
+                        {
+                            nombres.append(String(bytes: buf2[x+6...y], encoding: .utf8)!)
+                            break
+                        }
+                        
+                    }
+                   
+                    
+                    
+                    
+                    
+                }
+                
+                }
+        
             let cadena = String(bytes: buffer[32...cont+1], encoding: .utf8)
             client.close()
             completionHandler(cadena!, nombres)
