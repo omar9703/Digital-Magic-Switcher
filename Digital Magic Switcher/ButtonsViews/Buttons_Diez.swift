@@ -129,34 +129,51 @@ struct Buttons_Diez: View {
                 if next2{
                     Spacer(minLength: 70)
                     HStack{
-                        boton(nombre:self.$channelsName,id: self.$setid1, ip: self.$ip ,num: 1, buttons: self.$showB1, collection: self.$collection, activo: self.$activo1, tamaño: .infinity, aux: self.$indexAux)
-                        boton(nombre:self.$channelsName,id: self.$setid2, ip: self.$ip ,num: 2, buttons: self.$showB1, collection: self.$collection, activo: self.$activo2, tamaño: .infinity, aux: self.$indexAux)
-                        boton(nombre:self.$channelsName,id: self.$setid3, ip: self.$ip ,num: 3, buttons: self.$showB1, collection: self.$collection, activo: self.$activo3, tamaño: .infinity, aux: self.$indexAux)
-                        boton(nombre:self.$channelsName,id: self.$setid4, ip: self.$ip ,num: 4, buttons: self.$showB1, collection: self.$collection, activo: self.$activo4, tamaño: .infinity, aux: self.$indexAux)
-                        boton(nombre:self.$channelsName,id: self.$setid5, ip: self.$ip ,num: 5, buttons: self.$showB1, collection: self.$collection, activo: self.$activo5  , tamaño: .infinity , aux: self.$indexAux)
+                        boton(nombre:self.$channelsName,id: self.$setid1, ip: self.$ip ,num: 1, buttons: self.$showB1, collection: self.$collection, activo: self.$activo1, tamaño: 190, aux: self.$indexAux)
+                        Spacer()
+                        boton(nombre:self.$channelsName,id: self.$setid2, ip: self.$ip ,num: 2, buttons: self.$showB1, collection: self.$collection, activo: self.$activo2, tamaño: 150, aux: self.$indexAux)
+                        Spacer()
+                        boton(nombre:self.$channelsName,id: self.$setid3, ip: self.$ip ,num: 3, buttons: self.$showB1, collection: self.$collection, activo: self.$activo3, tamaño: 150, aux: self.$indexAux)
+                        Spacer()
+                        boton(nombre:self.$channelsName,id: self.$setid4, ip: self.$ip ,num: 4, buttons: self.$showB1, collection: self.$collection, activo: self.$activo4, tamaño: 150, aux: self.$indexAux)
+                        Spacer()
+                        boton(nombre:self.$channelsName,id: self.$setid5, ip: self.$ip ,num: 5, buttons: self.$showB1, collection: self.$collection, activo: self.$activo5  , tamaño: 150 , aux: self.$indexAux)
                     }.padding()
-                    Spacer()
+                    
                     HStack{
                         boton(nombre:self.$channelsName,id: self.$setid6, ip: self.$ip ,num: 6, buttons: self.$showB1, collection: self.$collection, activo: self.$activo6, tamaño: .infinity, aux: self.$indexAux)
+                        Spacer()
                         boton(nombre:self.$channelsName,id: self.$setid7, ip: self.$ip ,num: 7, buttons: self.$showB1, collection: self.$collection, activo: self.$activo7, tamaño: .infinity, aux: self.$indexAux)
+                        Spacer()
                         boton(nombre:self.$channelsName,id: self.$setid8, ip: self.$ip ,num: 8, buttons: self.$showB1, collection: self.$collection, activo: self.$activo8, tamaño: .infinity, aux: self.$indexAux)
+                        Spacer()
                         boton(nombre:self.$channelsName,id: self.$setid9, ip: self.$ip ,num: 9, buttons: self.$showB1, collection: self.$collection, activo: self.$activo9, tamaño: .infinity, aux: self.$indexAux)
+                        Spacer()
                         boton(nombre:self.$channelsName,id: self.$setid10, ip: self.$ip ,num: 10, buttons: self.$showB1, collection: self.$collection, activo: self.$activo10, tamaño: .infinity, aux: self.$indexAux)
                     }.padding()
                     Spacer()
                     HStack{
                         boton(nombre:self.$channelsName,id: self.$setid11, ip: self.$ip ,num: 11, buttons: self.$showB1, collection: self.$collection, activo: self.$activo11, tamaño: .infinity, aux: self.$indexAux)
+                        Spacer()
                         boton(nombre:self.$channelsName,id: self.$setid12, ip: self.$ip ,num: 12, buttons: self.$showB1, collection: self.$collection, activo: self.$activo12, tamaño: .infinity, aux: self.$indexAux)
+                        Spacer()
                         boton(nombre:self.$channelsName,id: self.$setid13, ip: self.$ip ,num: 13, buttons: self.$showB1, collection: self.$collection, activo: self.$activo13, tamaño: .infinity, aux: self.$indexAux)
+                        Spacer()
                         boton(nombre:self.$channelsName,id: self.$setid14, ip: self.$ip ,num: 14, buttons: self.$showB1, collection: self.$collection, activo: self.$activo14, tamaño: .infinity, aux: self.$indexAux)
+                        Spacer()
                         boton(nombre:self.$channelsName,id: self.$setid15, ip: self.$ip ,num: 15, buttons: self.$showB1, collection: self.$collection, activo: self.$activo15, tamaño: .infinity, aux: self.$indexAux)
+                        
                     }.padding()
                     Spacer()
                     HStack{
                         boton(nombre:self.$channelsName,id: self.$setid16, ip: self.$ip ,num: 16, buttons: self.$showB1, collection: self.$collection, activo: self.$activo16, tamaño: .infinity ,aux: self.$indexAux)
+                        Spacer()
                         boton(nombre:self.$channelsName,id: self.$setid17, ip: self.$ip ,num: 17, buttons: self.$showB1, collection: self.$collection, activo: self.$activo17, tamaño: .infinity, aux: self.$indexAux)
+                        Spacer()
                         boton(nombre:self.$channelsName,id: self.$setid18, ip: self.$ip ,num: 18, buttons: self.$showB1, collection: self.$collection, activo: self.$activo18, tamaño: .infinity, aux: self.$indexAux)
+                        Spacer()
                         boton(nombre:self.$channelsName,id: self.$setid19, ip: self.$ip ,num: 19, buttons: self.$showB1, collection: self.$collection, activo: self.$activo19, tamaño: .infinity, aux: self.$indexAux)
+                        Spacer()
                         boton(nombre:self.$channelsName,id: self.$setid20, ip: self.$ip ,num: 20, buttons: self.$showB1, collection: self.$collection, activo: self.$activo20, tamaño: .infinity, aux: self.$indexAux)
                     }.padding()
                     Spacer()
@@ -204,7 +221,7 @@ struct boton: View{
             sendData()
             
             
-            for x in Range(0...19)
+            for x in Range(0...39)
             {
                 if (x==num-1)
                 {
@@ -220,7 +237,7 @@ struct boton: View{
         }){
             Text(nombre[id])
         }
-        .frame(maxWidth:.infinity, maxHeight: self.tamaño)
+        .frame(maxWidth:180, maxHeight: self.tamaño)
         .background(buttons[num-1] ? Color(red: 237, green: 0, blue: 0, opacity: 100): Color.gray )
         .padding(.vertical)
         .foregroundColor(.white)

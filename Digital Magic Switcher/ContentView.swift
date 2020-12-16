@@ -9,7 +9,7 @@ import SwiftUI
 
 
 struct ContentView: View {
-    @State var ip = UserDefaults.standard.string(forKey: "ip") ?? "192.168.1.181"
+    @State var ip = UserDefaults.standard.string(forKey: "ip") ?? "192.168.1.1"
     @State var cont = 0.0
     @State var cargando = false
     @State var alert = false
@@ -33,7 +33,7 @@ struct ContentView: View {
             Image("fondochido")
                 .resizable()
                 .scaledToFill()
-                .edgesIgnoringSafeArea(.all)
+                
             
             VStack{
                 Text("Introduzca la IP del Switcher ATEM")
@@ -46,6 +46,7 @@ struct ContentView: View {
                 Button(action:{
                     
                     DispatchQueue.main.async {
+                        UserDefaults.standard.set(self.ip, forKey: "ip")
                         if(!(UserDefaults.standard.bool(forKey: "20") || UserDefaults.standard.bool(forKey: "40"))){
                             self.diez = true
                             print(diez,veinte,cuarenta)
@@ -59,17 +60,17 @@ struct ContentView: View {
                                         if(nombre.count==31){
                                             self.canales.insert(last, at: self.canales.count-4)
                                             UserDefaults.standard.set(self.ip, forKey: "ip")
-                                            if(self.aux.count == 0){
-                                            self.aux.append(self.canales[self.canales.count-4])
-                                            self.aux.append(self.canales[self.canales.count-3])
-                                            self.aux.append(self.canales[self.canales.count-2])
-                                            }
                                             self.collection = [10:"03e8",11:"2",12:"3"]
-                                            print(self.aux)
-                                            self.canales.remove(at: self.canales.count-4)
-                                            self.canales.remove(at: self.canales.count-3)
-                                            self.canales.remove(at: self.canales.count-2)
-                                            self.canales.remove(at: self.canales.count-1)
+                                            var cont = 0
+                                            for x in Range(0...self.canales.count-1)
+                                            {
+                                                if self.canales[x].contains("Auxiliary"){
+                                                    print(self.canales[x])
+                                                    cont += 1
+                                                    self.aux.append(self.canales[x])
+                                                }
+                                            }
+                                            self.canales.removeLast(cont+1)
                                 }
                                 
                                 print(nombre.count)
@@ -99,35 +100,37 @@ struct ContentView: View {
                 }
                 .onAppear{
                     DispatchQueue.main.async {
+                        UserDefaults.standard.set(self.ip, forKey: "ip")
                         if(!(UserDefaults.standard.bool(forKey: "20") || UserDefaults.standard.bool(forKey: "40"))){
                             self.diez = true
                             print(diez,veinte,cuarenta)
                         }
+                        self.cargando.toggle()
                         getName(ip: self.ip, completionHandler:{ (nombre, canales) in
                             print(nombre,canales.count)
-                            if(nombre != "error") {
-                                self.canales = canales
-                                let last = self.canales.remove(at: 0)
-                                if(nombre.count==31){
-                                    self.canales.insert(last, at: self.canales.count-4)
-                                    UserDefaults.standard.set(self.ip, forKey: "ip")
-                                    print(self.aux.count)
-                                    if(self.aux.count == 0){
-                                    self.aux.append(self.canales[self.canales.count-4])
-                                    self.aux.append(self.canales[self.canales.count-3])
-                                    self.aux.append(self.canales[self.canales.count-2])
-                                    }
-                                    self.collection = [10:"03e8",11:"2",12:"3"]
-                                    self.canales.remove(at: self.canales.count-4)
-                                    self.canales.remove(at: self.canales.count-3)
-                                    self.canales.remove(at: self.canales.count-2)
-                                    self.canales.remove(at: self.canales.count-1)
-                                    print(self.aux)
+                                    if(nombre != "error") {
+                            self.canales = canales
+                            let last = self.canales.remove(at: 0)
+                                        if(nombre.count==31){
+                                            self.canales.insert(last, at: self.canales.count-4)
+                                            
+                                            self.collection = [10:"03e8",11:"2",12:"3"]
+                                            var cont = 0
+                                            for x in Range(0...self.canales.count-1)
+                                            {
+                                                if self.canales[x].contains("Auxiliary"){
+                                                    print(self.canales[x])
+                                                    cont += 1
+                                                    self.aux.append(self.canales[x])
+                                                }
+                                            }
+                                            self.canales.removeLast(cont+1)
                                 }
+                                
                                 print(nombre.count)
                             name = nombre
                             numeroChannel = canales.count - 4
-                            self.next.toggle()
+                                self.next.toggle()
                             }
                             else{
                                 name = nombre
@@ -143,7 +146,7 @@ struct ContentView: View {
             }
             .padding(300)
             
-        }.navigationBarTitle("ATEM Production Studio 4K Switcher")
+        }.navigationBarTitle("ATEM Production Studio Switcher")
         .navigationBarTitleDisplayMode(.inline)
         
         }.navigationViewStyle(StackNavigationViewStyle())
