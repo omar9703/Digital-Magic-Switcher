@@ -371,7 +371,7 @@ struct boton: View{
         print(nombre[id].count)
         if (l.count == 1 && id != 9){
             print("normal")
-            return "0000000000000009000ce50b43417553010\(String(aux))000\(String(id+1,radix: 16))"
+            return "0000000000000009000ce50b43417553010\(String(aux))000\(String(id,radix: 16))"
            
         }
         else {
