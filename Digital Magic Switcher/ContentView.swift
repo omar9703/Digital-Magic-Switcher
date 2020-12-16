@@ -56,10 +56,6 @@ struct ContentView: View {
                             print(nombre,canales.count)
                                     if(nombre != "error") {
                             self.canales = canales
-                            
-                                        if(nombre.count==31){
-                                            
-                                            UserDefaults.standard.set(self.ip, forKey: "ip")
                                             self.collection = [10:"03e8",11:"2",12:"3"]
                                             var cont = 0
                                             for x in Range(0...self.canales.count-1)
@@ -71,7 +67,7 @@ struct ContentView: View {
                                                 }
                                             }
                                             self.canales.removeLast(cont+1)
-                                }
+                                
                                 
                                 print(nombre.count)
                             name = nombre
@@ -111,7 +107,7 @@ struct ContentView: View {
                                     if(nombre != "error") {
                             self.canales = canales
                            
-                                        if(nombre.count==31){
+                                        
                                             
                                             self.collection = [11:"03e8",12:"2",13:"3"]
                                             var cont = 0
@@ -124,7 +120,7 @@ struct ContentView: View {
                                                 }
                                             }
                                             self.canales.removeLast(cont+1)
-                                }
+                                
                                 
                                 print(nombre.count)
                             name = nombre

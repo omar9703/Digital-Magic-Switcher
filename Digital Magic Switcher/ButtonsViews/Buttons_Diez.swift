@@ -99,6 +99,8 @@ struct Buttons_Diez: View {
     @Binding var next3 : Bool
     @Binding var aux : [String]
     @Binding var indexAux : Int
+    @State var nums : [Int] = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
+    @State var nums2 : [Int] = [21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40]
     @State var showB1 : [Bool] = [false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false]
     var body: some View {
         ZStack{
@@ -180,8 +182,8 @@ struct Buttons_Diez: View {
                 }
                 if next3{
                     Spacer(minLength: 80)
-                    Buttons_veinte(channelsName: self.$channelsName, collection: self.$collection, setid1: self.$setid1, setid2: self.$setid2, setid3: self.$setid3, setid4: self.$setid4, setid5: self.$setid5, setid6: self.$setid6, setid7: self.$setid7, setid8: self.$setid8, setid9: self.$setid9, setid10: self.$setid10, setid11: self.$setid11, setid12: self.$setid12, setid13: self.$setid13, setid14: self.$setid14, setid15: self.$setid15, setid16: self.$setid16, setid17: self.$setid17, setid18: self.$setid18, setid19: self.$setid19, setid20: self.$setid20, ip: self.$ip, activo1: self.$activo1,indexAux: self.$indexAux)
-                    Buttons_veinte(channelsName: self.$channelsName, collection: self.$collection, setid1: self.$setid21, setid2: self.$setid22, setid3: self.$setid23, setid4: self.$setid24, setid5: self.$setid25, setid6: self.$setid26, setid7: self.$setid27, setid8: self.$setid28, setid9: self.$setid29, setid10: self.$setid30, setid11: self.$setid31, setid12: self.$setid32, setid13: self.$setid33, setid14: self.$setid34, setid15: self.$setid35, setid16: self.$setid36, setid17: self.$setid37, setid18: self.$setid38, setid19: self.$setid39, setid20: self.$setid40, ip: self.$ip, activo1: self.$activo1,indexAux : self.$indexAux)
+                    Buttons_veinte(channelsName: self.$channelsName, collection: self.$collection, setid1: self.$setid1, setid2: self.$setid2, setid3: self.$setid3, setid4: self.$setid4, setid5: self.$setid5, setid6: self.$setid6, setid7: self.$setid7, setid8: self.$setid8, setid9: self.$setid9, setid10: self.$setid10, setid11: self.$setid11, setid12: self.$setid12, setid13: self.$setid13, setid14: self.$setid14, setid15: self.$setid15, setid16: self.$setid16, setid17: self.$setid17, setid18: self.$setid18, setid19: self.$setid19, setid20: self.$setid20, ip: self.$ip, nums: self.$nums, activo1: self.$activo1,indexAux: self.$indexAux)
+                    Buttons_veinte(channelsName: self.$channelsName, collection: self.$collection, setid1: self.$setid21, setid2: self.$setid22, setid3: self.$setid23, setid4: self.$setid24, setid5: self.$setid25, setid6: self.$setid26, setid7: self.$setid27, setid8: self.$setid28, setid9: self.$setid29, setid10: self.$setid30, setid11: self.$setid31, setid12: self.$setid32, setid13: self.$setid33, setid14: self.$setid34, setid15: self.$setid35, setid16: self.$setid36, setid17: self.$setid37, setid18: self.$setid38, setid19: self.$setid39, setid20: self.$setid40, ip: self.$ip, nums: self.$nums2, activo1: self.$activo1,indexAux : self.$indexAux)
                     Spacer(minLength: 30)
                                         
                 }
@@ -233,6 +235,7 @@ struct boton: View{
                 }
                 
             }
+                print(buttons)
             }
         }){
             Text(nombre[id])
