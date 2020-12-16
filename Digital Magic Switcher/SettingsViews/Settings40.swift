@@ -106,7 +106,7 @@ struct Settings40: View {
                 })
                 {
                     Text("10 botones")
-                        .foregroundColor(.white)
+                        
                 }
                 Spacer()
                 Button(action:{
@@ -117,7 +117,7 @@ struct Settings40: View {
                 })
                 {
                     Text("20 botones")
-                        .foregroundColor(.white)
+                        
                 }
                 Spacer()
                 Button(action:{
@@ -128,7 +128,7 @@ struct Settings40: View {
                 })
                 {
                     Text("40 botones")
-                        .foregroundColor(.white)
+                        
                 }
                 
             }.padding()
