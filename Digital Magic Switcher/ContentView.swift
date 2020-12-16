@@ -113,7 +113,7 @@ struct ContentView: View {
                            
                                         if(nombre.count==31){
                                             
-                                            self.collection = [10:"03e8",11:"2",12:"3"]
+                                            self.collection = [11:"03e8",12:"2",13:"3"]
                                             var cont = 0
                                             for x in Range(0...self.canales.count-1)
                                             {

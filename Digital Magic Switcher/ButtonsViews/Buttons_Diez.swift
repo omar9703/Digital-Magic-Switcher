@@ -368,13 +368,8 @@ struct boton: View{
     }
     func checkLengthChannel(_ valor:Int) -> String{
         let l = String(valor)
-        print(nombre[id].count)
-        if (l.count == 1 && id != 9){
-            print("normal")
-            return "0000000000000009000ce50b43417553010\(String(aux))000\(String(id,radix: 16))"
-           
-        }
-        else {
+        print(String(id,radix: 16))
+        if(nombre[id] == "Color Bars\0" || nombre[id] == "Color 1\0" || nombre[id] == "Color 2\0" || nombre[id] == "Clean Feed 1\0" || nombre[id] == "Clean Feed 2\0" || nombre[id] == "Preview\0" || nombre[id] == "Program\0"){
             
             if(nombre[id] == "Color Bars\0"){
                 print("bars")
@@ -389,11 +384,6 @@ struct boton: View{
             {
                 print("colo2")
                 return "0000000000000009000ce50b43417553010\(String(aux))07d2" // Color 2
-                
-            }
-            if (nombre[id] == "Black\0"){
-                print("black")
-                return "0000000000000009000ce50b43417553010\(String(aux))0000" // black
                 
             }
             if (nombre[id] == "Clean Feed 1\0"){
@@ -423,13 +413,24 @@ struct boton: View{
             return "0000000000000009000ce50b43417553010\(String(aux))000\(r)"
             }
             else{
-                let r = String(10,radix: 16)
+                let r = String(00,radix: 16)
                 print("ultimo")
                 return "0000000000000009000ce50b43417553010\(String(aux))000\(r)"
             }
             
             
         }
+        else{
+            let value =  String(valor,radix: 16)
+            if (value.count == 1){
+            return "0000000000000009000ce50b43417553010\(String(aux))000\(value)"
+            }
+            else{
+                return "0000000000000009000ce50b43417553010\(String(aux))00\(value)"
+            }
+            
+        }
+    
         
     }
     func stringToBytes(_ string: String) -> [UInt8]? {
