@@ -9,13 +9,20 @@ import Foundation
 import SocketSwift
 
 func getName(ip :String,completionHandler: (String,[String]) -> Void){
+    var i = 0
+    var cadena = ""
+    var complete = false
+    var nombres = [String]()
+    while i < 10 {
     do{
+        
     let client = try Socket(.inet, type: .datagram, protocol: .udp)
         try client.connect(port: UInt16(9910), address: ip)
     var buf = stringToBytes("1014310a00000000002a00000100000000000000")
     try client.write(buf!)
         
     var buffer = [UInt8](repeating: 0, count: 100)
+        
     
         let r = try client.wait(for: .read, timeout: 0.5, retryOnInterrupt: false)
         if (!r){
@@ -29,7 +36,11 @@ func getName(ip :String,completionHandler: (String,[String]) -> Void){
     buffer = [UInt8](repeating: 0, count: 2000)
     numberOfReadBytes = try! client.read(&buffer, size: 2000)
     var buf2 = [UInt8](repeating: 0, count: 2000)
-    try! client.read(&buf2,size: 2000)
+    try client.read(&buf2,size: 2000)
+    var buf3 = [UInt8](repeating: 0, count: 2000)
+    try client.read(&buf3,size: 2000)
+    var buf4 = [UInt8](repeating: 0, count: 2000)
+    try client.read(&buf4,size: 2000)
     var cont = 0
         print(numberOfReadBytes)
     for x in Range(32...110){
@@ -40,8 +51,8 @@ func getName(ip :String,completionHandler: (String,[String]) -> Void){
         }
         }
     var canales = 0
-        var nombres = [String]()
-        if(numberOfReadBytes>99 && (cont+1)>32){
+        
+        if(numberOfReadBytes>99 && (cont+1)>20){
         for x in Range(100...numberOfReadBytes){
             if(String(bytes: buffer[x...x+3], encoding: .utf8) == "InPr" )
             {
@@ -81,21 +92,53 @@ func getName(ip :String,completionHandler: (String,[String]) -> Void){
                 }
                 
                 }
+            
+            for x in Range(0...numberOfReadBytes){
+                    if(String(bytes: buf4[x...(x+3)], encoding: .utf8) == "InPr" )
+                    {
+                        for y in Range((x+6)...(x+23)){
+                            
+                            if(buf4[y] == UInt8(0))
+                            {
+                                nombres.append(String(bytes: buf4[x+6...y], encoding: .utf8)!)
+                                break
+                            }
+                            
+                        }
+                       
+                        
+                        
+                        
+                        
+                    }
+                    
+                    }
         
-            let cadena = String(bytes: buffer[32...cont+1], encoding: .utf8)
+            cadena = String(bytes: buffer[32...cont+1], encoding: .utf8)!
             client.close()
-            completionHandler(cadena!, nombres)
+            complete = true
+            break
         }
         else{
-            completionHandler("error",["errores"])
+            print("error")
+            i=i+1
+            
         }
     }
     catch let error as NSError{
         print("Error al obtener nombre", error.localizedDescription)
-        completionHandler("error",["errores"])
         
+        i=i+1
     }
 }
+    if complete{
+        completionHandler(cadena,nombres)
+    }
+    else{
+        completionHandler("error",["errores"])
+    }
+}
+    
 
 func stringToBytes(_ string: String) -> [UInt8]? {
     let length = string.count

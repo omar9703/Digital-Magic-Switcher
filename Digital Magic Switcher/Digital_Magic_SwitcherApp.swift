@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+
+
 @main
 struct Digital_Magic_SwitcherApp: App {
     var body: some Scene {
@@ -14,4 +16,5 @@ struct Digital_Magic_SwitcherApp: App {
             ContentView()
         }
     }
+    
 }

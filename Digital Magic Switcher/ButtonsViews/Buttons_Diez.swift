@@ -106,7 +106,7 @@ struct Buttons_Diez: View {
     @State var showB2 : [Bool] = [false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false]
     var body: some View {
         ZStack{
-            Image("fondochido")
+            Image("chido")
                 .resizable()
                 .scaledToFill()
                 
@@ -200,10 +200,11 @@ struct Buttons_Diez: View {
                 Image(systemName: "gear")
             })
             .sheet(isPresented: self.$settings, content:{
-                TabbedSettingsViewController(channelsName: self.$channelsName, selectedName: self.$setid1, selectedName2: self.$setid2, selectedName3: self.$setid3, selectedName4: self.$setid4, selectedName5: self.$setid5,selectedName6: self.$setid6,selectedName7: self.$setid7, selectedName8: self.$setid8, selectedName9: self.$setid9, selectedName10: self.$setid10, selectedName11: self.$setid11, selectedName12: self.$setid12, selectedName13: self.$setid13, selectedName14: self.$setid14, selectedName15: self.$setid15, selectedName16: self.$setid16, selectedName17: self.$setid17, selectedName18: self.$setid18, selectedName19: self.$setid19, selectedName20: self.$setid20,selectedName21: self.$setid21, selectedName22: self.$setid22,selectedName23: self.$setid23, selectedName24: self.$setid24, selectedName25: self.$setid26,selectedName26: self.$setid26, selectedName27: self.$setid27, selectedName28: self.$setid28, selectedName29: self.$setid29, selectedName30: self.$setid30, selectedName31: self.$setid31,selectedName32: self.$setid32,selectedName33: self.$setid33,selectedName34: self.$setid34,selectedName35: self.$setid35,selectedName36: self.$setid36,selectedName37: self.$setid37,selectedName38: self.$setid38, selectedName39: self.$setid39,selectedName40: self.$setid40,next: self.$next, next2: self.$next2, next3: self.$next3, activo1: self.$activo1, activo2: self.$activo2,activo3: self.$activo3,activo4: self.$activo4,activo5: self.$activo5,activo6: self.$activo6,activo7: self.$activo7,activo8: self.$activo8,activo9: self.$activo9,activo10: self.$activo10, activo11: self.$activo11, activo12: self.$activo12,activo13: self.$activo13,activo14: self.$activo14,activo15: self.$activo15,activo16: self.$activo16,activo17: self.$activo17,activo18: self.$activo18,activo19: self.$activo19,activo20: self.$activo20, activo21: self.$activo21, activo22: self.$activo22,activo23: self.$activo23,activo24: self.$activo24,activo25: self.$activo25,activo26: self.$activo26,activo27: self.$activo27,activo28: self.$activo28,activo29: self.$activo29,activo30: self.$activo30, activo31: self.$activo31, activo32: self.$activo32,activo33: self.$activo33,activo34: self.$activo34,activo35: self.$activo35,activo36: self.$activo36,activo37: self.$activo37,activo38: self.$activo38,activo39: self.$activo39,activo40: self.$activo40, aux: self.$aux,indexAux: self.$indexAux)
+                TabbedSettingsViewController(channelsName: self.$channelsName, selectedName: self.$setid1, selectedName2: self.$setid2, selectedName3: self.$setid3, selectedName4: self.$setid4, selectedName5: self.$setid5,selectedName6: self.$setid6,selectedName7: self.$setid7, selectedName8: self.$setid8, selectedName9: self.$setid9, selectedName10: self.$setid10, selectedName11: self.$setid11, selectedName12: self.$setid12, selectedName13: self.$setid13, selectedName14: self.$setid14, selectedName15: self.$setid15, selectedName16: self.$setid16, selectedName17: self.$setid17, selectedName18: self.$setid18, selectedName19: self.$setid19, selectedName20: self.$setid20,selectedName21: self.$setid21, selectedName22: self.$setid22,selectedName23: self.$setid23, selectedName24: self.$setid24, selectedName25: self.$setid25,selectedName26: self.$setid26, selectedName27: self.$setid27, selectedName28: self.$setid28, selectedName29: self.$setid29, selectedName30: self.$setid30, selectedName31: self.$setid31,selectedName32: self.$setid32,selectedName33: self.$setid33,selectedName34: self.$setid34,selectedName35: self.$setid35,selectedName36: self.$setid36,selectedName37: self.$setid37,selectedName38: self.$setid38, selectedName39: self.$setid39,selectedName40: self.$setid40,next: self.$next, next2: self.$next2, next3: self.$next3, activo1: self.$activo1, activo2: self.$activo2,activo3: self.$activo3,activo4: self.$activo4,activo5: self.$activo5,activo6: self.$activo6,activo7: self.$activo7,activo8: self.$activo8,activo9: self.$activo9,activo10: self.$activo10, activo11: self.$activo11, activo12: self.$activo12,activo13: self.$activo13,activo14: self.$activo14,activo15: self.$activo15,activo16: self.$activo16,activo17: self.$activo17,activo18: self.$activo18,activo19: self.$activo19,activo20: self.$activo20, activo21: self.$activo21, activo22: self.$activo22,activo23: self.$activo23,activo24: self.$activo24,activo25: self.$activo25,activo26: self.$activo26,activo27: self.$activo27,activo28: self.$activo28,activo29: self.$activo29,activo30: self.$activo30, activo31: self.$activo31, activo32: self.$activo32,activo33: self.$activo33,activo34: self.$activo34,activo35: self.$activo35,activo36: self.$activo36,activo37: self.$activo37,activo38: self.$activo38,activo39: self.$activo39,activo40: self.$activo40, aux: self.$aux,indexAux: self.$indexAux)
             })
             
         }
+        
             }
 }
 
@@ -224,7 +225,7 @@ struct boton: View{
         Button(action:{
             if(activo)
             {
-                
+                DispatchQueue.main.async {
             for x in Range(0...39)
             {
                 if (x==num-1)
@@ -239,23 +240,27 @@ struct boton: View{
             }
             for x in Range(0...39)
             {
-                if (x==num-1)
-                {
-                    disable[x] = false
-                        
-                    }
-                else{
-                    disable[x] = true
-                    }
+                disable[x] = true
             }
-                sendData()
-                for x in Range(0...39)
-                {
-                    disable[x] = false
+                
+                    
+                
+                sendData {
+                    for x in Range(0...39)
+                    {
+                        if(x == num-1){
+                            disable[x]=true
+                        }
+                        else{
+                        disable[x] = false
+                        }
+                    }
                 }
+                }
+                
             }
         }){
-            Text(nombre[id])
+            Text(id>nombre.count ?  nombre[0] : nombre[id])
         }
         .frame(maxWidth:180, maxHeight: self.tamaño)
         .background(buttons[num-1] ? Color(red: 237, green: 0, blue: 0, opacity: 100): Color.gray )
@@ -263,7 +268,7 @@ struct boton: View{
         .foregroundColor(.white)
         .disabled(disable[num-1])
     }
-    func sendData(){
+    func sendData(completitionHandler: () -> Void){
         
         do{
         let client = try Socket(.inet, type: .datagram, protocol: .udp)
@@ -377,10 +382,12 @@ struct boton: View{
        
         buffer = [UInt8](repeating: 0, count: 100)
         numberOfReadBytes = try! client.read(&buffer, size: 100)
+            completitionHandler()
         }
         catch let error as NSError{
             print(error.localizedDescription)
             self.buttons[num-1] = false
+            completitionHandler()
         }
         
         
@@ -389,41 +396,59 @@ struct boton: View{
     func checkLengthChannel(_ valor:Int) -> String{
         let l = String(valor)
         print(String(id,radix: 16))
-        if(nombre[id] == "Color Bars\0" || nombre[id] == "Color 1\0" || nombre[id] == "Color 2\0" || nombre[id] == "Clean Feed 1\0" || nombre[id] == "Clean Feed 2\0" || nombre[id] == "Preview\0" || nombre[id] == "Program\0"){
+        var put = ""
+        let out = String(aux,radix: 16)
+        if out.count == 1{
+            put = "0"+out
+        }
+        else{
+            put = out
+        }
+        if(nombre[id] == "Color Bars\0" || nombre[id] == "Color 1\0" || nombre[id] == "Color 2\0" || nombre[id] == "Clean Feed 1\0" || nombre[id] == "Clean Feed 2\0" || nombre[id] == "Clean Feed 3\0" || nombre[id] == "Clean Feed 4\0" || nombre[id] == "Preview\0" || nombre[id] == "Program\0"){
             
             if(nombre[id] == "Color Bars\0"){
                 print("bars")
-                return "0000000000000009000ce50b43417553010\(String(aux))\(self.collection[valor]!)"
+                return "0000000000000009000ce50b4341755301\(put)03e8"
             }
             if(nombre[id] == "Color 1\0"){
                 print("color")
-                return "0000000000000009000ce50b43417553010\(String(aux))07d1" // Color 1
+                return "0000000000000009000ce50b4341755301\(put)07d1" // Color 1
                 
             }
             if (nombre[id] == "Color 2\0")
             {
                 print("colo2")
-                return "0000000000000009000ce50b43417553010\(String(aux))07d2" // Color 2
+                return "0000000000000009000ce50b4341755301\(put)07d2" // Color 2
                 
             }
             if (nombre[id] == "Clean Feed 1\0"){
                 print("black")
-                return "0000000000000009000ce50b43417553010\(String(aux))1b59" // black
+                return "0000000000000009000ce50b4341755301\(put)1b59" // black
                 
             }
             if (nombre[id] == "Clean Feed 2\0"){
                 print("black")
-                return "0000000000000009000ce50b43417553010\(String(aux))1b5a" // black
+                return "0000000000000009000ce50b4341755301\(put)1b5a" // black
+                
+            }
+            if (nombre[id] == "Clean Feed 3\0"){
+                print("black")
+                return "0000000000000009000ce50b4341755301\(put)1b5b" // black
+                
+            }
+            if (nombre[id] == "Clean Feed 4\0"){
+                print("black")
+                return "0000000000000009000ce50b4341755301\(put)1b5c" // black
                 
             }
             if (nombre[id] == "Preview\0"){
                 print("black")
-                return "0000000000000009000ce50b43417553010\(String(aux))271b" // black
+                return "0000000000000009000ce50b4341755301\(put)271b" // black
                 
             }
             if (nombre[id] == "Program\0"){
                 print("black")
-                return "0000000000000009000ce50b43417553010\(String(aux))271a" // black
+                return "0000000000000009000ce50b4341755301\(put)271a" // black
                 
             }
            
@@ -442,11 +467,14 @@ struct boton: View{
         }
         else{
             let value =  String(valor,radix: 16)
+            print("vaalor", value)
             if (value.count == 1){
-            return "0000000000000009000ce50b43417553010\(String(aux))000\(value)"
+                print("1", value,valor)
+            return "0000000000000009000ce50b4341755301\(put)000\(value)"
             }
             else{
-                return "0000000000000009000ce50b43417553010\(String(aux))00\(value)"
+                print("2", value,valor)
+            return "0000000000000009000ce50b4341755301\(put)00\(value)"
             }
             
         }
@@ -466,6 +494,7 @@ struct boton: View{
             if let b = UInt8(string[index..<nextIndex], radix: 16) {
                 bytes.append(b)
             } else {
+                
                 return nil
             }
             index = nextIndex

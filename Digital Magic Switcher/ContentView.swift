@@ -31,7 +31,7 @@ struct ContentView: View {
     var body: some View {
         NavigationView{
             ZStack{
-                Image("fondochido")
+                Image("chido")
                     .resizable()
                     .scaledToFill()
                 
@@ -57,21 +57,25 @@ struct ContentView: View {
                                     print(nombre,canales.count)
                                     if(nombre != "error") {
                                         self.canales = canales
-                                        if(nombre.count != 31){
-                                            self.index = 1
-                                        }
+                                        self.aux.removeAll()
                                         self.collection = [10:"03e8",11:"2",12:"3"]
                                         var cont = 0
                                         for x in Range(0...self.canales.count-1)
                                         {
-                                            if self.canales[x].contains("Auxiliary"){
+                                            if (self.canales[x].contains("Auxiliary") || self.canales[x].contains("Output")){
                                                 print(self.canales[x])
                                                 cont += 1
                                                 self.aux.append(self.canales[x])
                                             }
                                         }
                                         self.canales.removeLast(cont+1)
-                                        
+                                        if(nombre.count == 21){
+                                            self.index = 1
+                                            
+                                        }
+                                        if (self.contAux>self.aux.count-1){
+                                            self.contAux=1
+                                        }
                                         
                                         print(nombre.count)
                                         name = nombre
@@ -119,13 +123,20 @@ struct ContentView: View {
                                     var cont = 0
                                     for x in Range(0...self.canales.count-1)
                                     {
-                                        if self.canales[x].contains("Auxiliary"){
+                                        if (self.canales[x].contains("Auxiliary") || self.canales[x].contains("Output")){
                                             print(self.canales[x])
                                             cont += 1
                                             self.aux.append(self.canales[x])
                                         }
                                     }
                                     self.canales.removeLast(cont+1)
+                                    if(nombre.count == 21){
+                                        self.index = 1
+                                        
+                                    }
+                                    if (self.contAux>self.aux.count-1){
+                                        self.contAux=1
+                                    }
                                     
                                     
                                     print(nombre.count)
