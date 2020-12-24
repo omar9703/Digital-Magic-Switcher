@@ -12,46 +12,46 @@ struct Buttons_Diez: View {
     @Binding var title : String
     @Binding var channelsName : [String]
     @State var settings = false
-    @State var setid1 = UserDefaults.standard.integer(forKey: "id1")
-    @State var setid2 = UserDefaults.standard.integer(forKey: "id2")
-    @State var setid3 = UserDefaults.standard.integer(forKey: "id3")
-    @State var setid4 = UserDefaults.standard.integer(forKey: "id4")
-    @State var setid5 = UserDefaults.standard.integer(forKey: "id5")
-    @State var setid6 = UserDefaults.standard.integer(forKey: "id6")
-    @State var setid7 = UserDefaults.standard.integer(forKey: "id7")
-    @State var setid8 = UserDefaults.standard.integer(forKey: "id8")
-    @State var setid9 = UserDefaults.standard.integer(forKey: "id9")
-    @State var setid10 = UserDefaults.standard.integer(forKey: "id10")
-    @State var setid11 = UserDefaults.standard.integer(forKey: "id11")
-    @State var setid12 = UserDefaults.standard.integer(forKey: "id12")
-    @State var setid13 = UserDefaults.standard.integer(forKey: "id13")
-    @State var setid14 = UserDefaults.standard.integer(forKey: "id14")
-    @State var setid15 = UserDefaults.standard.integer(forKey: "id15")
-    @State var setid16 = UserDefaults.standard.integer(forKey: "id16")
-    @State var setid17 = UserDefaults.standard.integer(forKey: "id17")
-    @State var setid18 = UserDefaults.standard.integer(forKey: "id18")
-    @State var setid19 = UserDefaults.standard.integer(forKey: "id19")
-    @State var setid20 = UserDefaults.standard.integer(forKey: "id20")
-    @State var setid21 = UserDefaults.standard.integer(forKey: "id21")
-    @State var setid22 = UserDefaults.standard.integer(forKey: "id22")
-    @State var setid23 = UserDefaults.standard.integer(forKey: "id23")
-    @State var setid24 = UserDefaults.standard.integer(forKey: "id24")
-    @State var setid25 = UserDefaults.standard.integer(forKey: "id25")
-    @State var setid26 = UserDefaults.standard.integer(forKey: "id26")
-    @State var setid27 = UserDefaults.standard.integer(forKey: "id27")
-    @State var setid28 = UserDefaults.standard.integer(forKey: "id28")
-    @State var setid29 = UserDefaults.standard.integer(forKey: "id29")
-    @State var setid30 = UserDefaults.standard.integer(forKey: "id30")
-    @State var setid31 = UserDefaults.standard.integer(forKey: "id31")
-    @State var setid32 = UserDefaults.standard.integer(forKey: "id32")
-    @State var setid33 = UserDefaults.standard.integer(forKey: "id33")
-    @State var setid34 = UserDefaults.standard.integer(forKey: "id34")
-    @State var setid35 = UserDefaults.standard.integer(forKey: "id35")
-    @State var setid36 = UserDefaults.standard.integer(forKey: "id36")
-    @State var setid37 = UserDefaults.standard.integer(forKey: "id37")
-    @State var setid38 = UserDefaults.standard.integer(forKey: "id38")
-    @State var setid39 = UserDefaults.standard.integer(forKey: "id39")
-    @State var setid40 = UserDefaults.standard.integer(forKey: "id40")
+    @Binding var setid1 : Int
+    @Binding var setid2 : Int
+    @Binding var setid3 : Int
+    @Binding var setid4 : Int
+    @Binding var setid5 : Int
+    @Binding var setid6 : Int
+    @Binding var setid7 : Int
+    @Binding var setid8 : Int
+    @Binding var setid9 : Int
+    @Binding var setid10: Int
+    @Binding var setid11: Int
+    @Binding var setid12: Int
+    @Binding var setid13: Int
+    @Binding var setid14: Int
+    @Binding var setid15: Int
+    @Binding var setid16: Int
+    @Binding var setid17: Int
+    @Binding var setid18: Int
+    @Binding var setid19: Int
+    @Binding var setid20: Int
+    @Binding var setid21: Int
+    @Binding var setid22: Int
+    @Binding var setid23: Int
+    @Binding var setid24: Int
+    @Binding var setid25: Int
+    @Binding var setid26: Int
+    @Binding var setid27: Int
+    @Binding var setid28: Int
+    @Binding var setid29: Int
+    @Binding var setid30: Int
+    @Binding var setid31: Int
+    @Binding var setid32: Int
+    @Binding var setid33: Int
+    @Binding var setid34: Int
+    @Binding var setid35: Int
+    @Binding var setid36: Int
+    @Binding var setid37: Int
+    @Binding var setid38: Int
+    @Binding var setid39: Int
+    @Binding var setid40: Int
     @State var activo1 = UserDefaults.standard.bool(forKey: "ac1")
     @State var activo2 = UserDefaults.standard.bool(forKey: "ac2")
     @State var activo3 = UserDefaults.standard.bool(forKey: "ac3")
@@ -198,6 +198,7 @@ struct Buttons_Diez: View {
                 self.settings.toggle()
             }){
                 Image(systemName: "gear")
+                    .foregroundColor(/*@START_MENU_TOKEN@*/.blue/*@END_MENU_TOKEN@*/)
             })
             .sheet(isPresented: self.$settings, content:{
                 TabbedSettingsViewController(channelsName: self.$channelsName, selectedName: self.$setid1, selectedName2: self.$setid2, selectedName3: self.$setid3, selectedName4: self.$setid4, selectedName5: self.$setid5,selectedName6: self.$setid6,selectedName7: self.$setid7, selectedName8: self.$setid8, selectedName9: self.$setid9, selectedName10: self.$setid10, selectedName11: self.$setid11, selectedName12: self.$setid12, selectedName13: self.$setid13, selectedName14: self.$setid14, selectedName15: self.$setid15, selectedName16: self.$setid16, selectedName17: self.$setid17, selectedName18: self.$setid18, selectedName19: self.$setid19, selectedName20: self.$setid20,selectedName21: self.$setid21, selectedName22: self.$setid22,selectedName23: self.$setid23, selectedName24: self.$setid24, selectedName25: self.$setid25,selectedName26: self.$setid26, selectedName27: self.$setid27, selectedName28: self.$setid28, selectedName29: self.$setid29, selectedName30: self.$setid30, selectedName31: self.$setid31,selectedName32: self.$setid32,selectedName33: self.$setid33,selectedName34: self.$setid34,selectedName35: self.$setid35,selectedName36: self.$setid36,selectedName37: self.$setid37,selectedName38: self.$setid38, selectedName39: self.$setid39,selectedName40: self.$setid40,next: self.$next, next2: self.$next2, next3: self.$next3, activo1: self.$activo1, activo2: self.$activo2,activo3: self.$activo3,activo4: self.$activo4,activo5: self.$activo5,activo6: self.$activo6,activo7: self.$activo7,activo8: self.$activo8,activo9: self.$activo9,activo10: self.$activo10, activo11: self.$activo11, activo12: self.$activo12,activo13: self.$activo13,activo14: self.$activo14,activo15: self.$activo15,activo16: self.$activo16,activo17: self.$activo17,activo18: self.$activo18,activo19: self.$activo19,activo20: self.$activo20, activo21: self.$activo21, activo22: self.$activo22,activo23: self.$activo23,activo24: self.$activo24,activo25: self.$activo25,activo26: self.$activo26,activo27: self.$activo27,activo28: self.$activo28,activo29: self.$activo29,activo30: self.$activo30, activo31: self.$activo31, activo32: self.$activo32,activo33: self.$activo33,activo34: self.$activo34,activo35: self.$activo35,activo36: self.$activo36,activo37: self.$activo37,activo38: self.$activo38,activo39: self.$activo39,activo40: self.$activo40, aux: self.$aux,indexAux: self.$indexAux)
@@ -260,7 +261,7 @@ struct boton: View{
                 
             }
         }){
-            Text(id>nombre.count ?  nombre[0] : nombre[id])
+            Text(id>nombre.count-1 ?  nombre[0] : nombre[id])
         }
         .frame(maxWidth:180, maxHeight: self.tamaño)
         .background(buttons[num-1] ? Color(red: 237, green: 0, blue: 0, opacity: 100): Color.gray )

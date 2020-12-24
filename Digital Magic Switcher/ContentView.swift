@@ -28,6 +28,46 @@ struct ContentView: View {
     @State var aux = [String]()
     @State var contAux = UserDefaults.standard.integer(forKey: "aux")
     @State var index = 0
+    @State var setid1 = UserDefaults.standard.integer(forKey: "id1")
+    @State var setid2 = UserDefaults.standard.integer(forKey: "id2")
+    @State var setid3 = UserDefaults.standard.integer(forKey: "id3")
+    @State var setid4 = UserDefaults.standard.integer(forKey: "id4")
+    @State var setid5 = UserDefaults.standard.integer(forKey: "id5")
+    @State var setid6 = UserDefaults.standard.integer(forKey: "id6")
+    @State var setid7 = UserDefaults.standard.integer(forKey: "id7")
+    @State var setid8 = UserDefaults.standard.integer(forKey: "id8")
+    @State var setid9 = UserDefaults.standard.integer(forKey: "id9")
+    @State var setid10 = UserDefaults.standard.integer(forKey: "id10")
+    @State var setid11 = UserDefaults.standard.integer(forKey: "id11")
+    @State var setid12 = UserDefaults.standard.integer(forKey: "id12")
+    @State var setid13 = UserDefaults.standard.integer(forKey: "id13")
+    @State var setid14 = UserDefaults.standard.integer(forKey: "id14")
+    @State var setid15 = UserDefaults.standard.integer(forKey: "id15")
+    @State var setid16 = UserDefaults.standard.integer(forKey: "id16")
+    @State var setid17 = UserDefaults.standard.integer(forKey: "id17")
+    @State var setid18 = UserDefaults.standard.integer(forKey: "id18")
+    @State var setid19 = UserDefaults.standard.integer(forKey: "id19")
+    @State var setid20 = UserDefaults.standard.integer(forKey: "id20")
+    @State var setid21 = UserDefaults.standard.integer(forKey: "id21")
+    @State var setid22 = UserDefaults.standard.integer(forKey: "id22")
+    @State var setid23 = UserDefaults.standard.integer(forKey: "id23")
+    @State var setid24 = UserDefaults.standard.integer(forKey: "id24")
+    @State var setid25 = UserDefaults.standard.integer(forKey: "id25")
+    @State var setid26 = UserDefaults.standard.integer(forKey: "id26")
+    @State var setid27 = UserDefaults.standard.integer(forKey: "id27")
+    @State var setid28 = UserDefaults.standard.integer(forKey: "id28")
+    @State var setid29 = UserDefaults.standard.integer(forKey: "id29")
+    @State var setid30 = UserDefaults.standard.integer(forKey: "id30")
+    @State var setid31 = UserDefaults.standard.integer(forKey: "id31")
+    @State var setid32 = UserDefaults.standard.integer(forKey: "id32")
+    @State var setid33 = UserDefaults.standard.integer(forKey: "id33")
+    @State var setid34 = UserDefaults.standard.integer(forKey: "id34")
+    @State var setid35 = UserDefaults.standard.integer(forKey: "id35")
+    @State var setid36 = UserDefaults.standard.integer(forKey: "id36")
+    @State var setid37 = UserDefaults.standard.integer(forKey: "id37")
+    @State var setid38 = UserDefaults.standard.integer(forKey: "id38")
+    @State var setid39 = UserDefaults.standard.integer(forKey: "id39")
+    @State var setid40 = UserDefaults.standard.integer(forKey: "id40")
     var body: some View {
         NavigationView{
             ZStack{
@@ -43,7 +83,7 @@ struct ContentView: View {
                         .multilineTextAlignment(.center)
                         .padding()
                         .overlay(Capsule(style: .continuous).stroke(Color.white, style: StrokeStyle(lineWidth: 5)))
-                    NavigationLink(destination: Buttons_Diez(title: self.$name, channelsName: self.$canales, collection: self.$collection,ip: self.$ip, next: self.$diez, next2: self.$veinte, next3: self.$cuarenta,aux: self.$aux, indexAux: self.$contAux, index: self.$index), isActive: self.$next){
+                    NavigationLink(destination: Buttons_Diez(title: self.$name, channelsName: self.$canales,setid1: self.$setid1,setid2: self.$setid2,setid3: self.$setid3,setid4: self.$setid4,setid5: self.$setid5,setid6: self.$setid6,setid7: self.$setid7,setid8: self.$setid8, setid9: self.$setid9,setid10: self.$setid10,setid11: self.$setid11,setid12: self.$setid12, setid13: self.$setid13,setid14: self.$setid14,setid15: self.$setid15,setid16: self.$setid16,setid17: self.$setid17,setid18: self.$setid18, setid19: self.$setid19,setid20: self.$setid20,setid21: self.$setid21, setid22: self.$setid22,setid23: self.$setid23,setid24: self.$setid24, setid25: self.$setid25,setid26: self.$setid26,setid27: self.$setid27, setid28: self.$setid28, setid29: self.$setid29,setid30: self.$setid30,setid31: self.$setid31, setid32: self.$setid32,setid33: self.$setid33,setid34: self.$setid34,setid35: self.$setid35,setid36: self.$setid36, setid37: self.$setid37,setid38: self.$setid38,setid39: self.$setid39,setid40: self.$setid40, collection: self.$collection,ip: self.$ip, next: self.$diez, next2: self.$veinte, next3: self.$cuarenta,aux: self.$aux, indexAux: self.$contAux, index: self.$index), isActive: self.$next){
                         Button(action:{
                             
                             DispatchQueue.main.async {
@@ -96,6 +136,7 @@ struct ContentView: View {
                                 Text("Conectar").foregroundColor(.white)
                             }.frame(width: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, height: 50, alignment: .center)
                             .background(Color( red: 255, green: 0, blue: 0,opacity: 255))
+                            
                         }
                         .alert(isPresented: self.$alert){
                             
@@ -114,11 +155,6 @@ struct ContentView: View {
                                 print(nombre,canales.count)
                                 if(nombre != "error") {
                                     self.canales = canales
-                                    
-                                    
-                                    if(nombre.count != 31){
-                                        self.index = 1
-                                    }
                                     self.collection = [11:"03e8",12:"2",13:"3"]
                                     var cont = 0
                                     for x in Range(0...self.canales.count-1)

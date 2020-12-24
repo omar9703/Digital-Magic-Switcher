@@ -136,9 +136,8 @@ struct botones : View{
         Button(action:{
             self.picker.toggle()
             
-            
         }){
-            Text(channelsName[self.selectedName])
+            Text(self.selectedName>channelsName.count-1 ? channelsName[0] : channelsName[self.selectedName])
         }
             if self.picker{
             Picker(selection: $selectedName, label: Text("seleccione un nombre")) {

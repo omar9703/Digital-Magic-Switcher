@@ -84,14 +84,25 @@ func getName(ip :String,completionHandler: (String,[String]) -> Void){
                         }
                         
                     }
-                   
-                    
-                    
-                    
-                    
                 }
                 
                 }
+            for x in Range(0...numberOfReadBytes){
+                    if(String(bytes: buf3[x...(x+3)], encoding: .utf8) == "InPr" )
+                    {
+                        for y in Range((x+6)...(x+23)){
+                            
+                            if(buf3[y] == UInt8(0))
+                            {
+                                nombres.append(String(bytes: buf3[x+6...y], encoding: .utf8)!)
+                                break
+                            }
+                            
+                        }
+                                    
+                    }
+                    
+                    }
             
             for x in Range(0...numberOfReadBytes){
                     if(String(bytes: buf4[x...(x+3)], encoding: .utf8) == "InPr" )
@@ -105,11 +116,7 @@ func getName(ip :String,completionHandler: (String,[String]) -> Void){
                             }
                             
                         }
-                       
-                        
-                        
-                        
-                        
+                                    
                     }
                     
                     }
