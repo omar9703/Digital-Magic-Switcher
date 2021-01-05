@@ -145,6 +145,9 @@ struct ContentView: View {
                     }
                     .onAppear{
                         DispatchQueue.main.async {
+                            AppDelegate.orientationLock = UIInterfaceOrientationMask.landscape
+                                    UIDevice.current.setValue(UIInterfaceOrientation.landscapeLeft.rawValue, forKey: "orientation")
+                                    UINavigationController.attemptRotationToDeviceOrientation()
                             UserDefaults.standard.set(self.ip, forKey: "ip")
                             if(!(UserDefaults.standard.bool(forKey: "20") || UserDefaults.standard.bool(forKey: "40"))){
                                 self.diez = true

@@ -6,8 +6,17 @@
 //
 
 import SwiftUI
+import UIKit
+class AppDelegate: NSObject, UIApplicationDelegate {
+    static var orientationLock =
+        UIInterfaceOrientationMask.landscapeLeft
 
-
+    func application(_ application: UIApplication,
+    supportedInterfaceOrientationsFor window:
+    UIWindow?) -> UIInterfaceOrientationMask {
+    return AppDelegate.orientationLock
+    }
+}
 
 @main
 struct Digital_Magic_SwitcherApp: App {
