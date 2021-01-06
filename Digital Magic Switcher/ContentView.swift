@@ -102,7 +102,7 @@ struct ContentView: View {
                                         var cont = 0
                                         for x in Range(0...self.canales.count-1)
                                         {
-                                            if (self.canales[x].contains("Auxiliary") || self.canales[x].contains("Output")){
+                                            if (self.canales[x].contains("Aux") || self.canales[x].contains("Output")){
                                                 print(self.canales[x])
                                                 cont += 1
                                                 self.aux.append(self.canales[x])
