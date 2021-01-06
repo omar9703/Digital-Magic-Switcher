@@ -108,7 +108,6 @@ struct ContentView: View {
                                                 self.aux.append(self.canales[x])
                                             }
                                         }
-                                        self.canales.removeLast(cont+1)
                                         if(nombre.count == 21){
                                             self.index = 1
                                             
@@ -120,17 +119,9 @@ struct ContentView: View {
                                         print(nombre.count)
                                         name = nombre
                                         numeroChannel = canales.count - 4
-                                        var cont2 = 0
-                                        for var x in Range(0...self.canales.count-1)
-                                        {
-                                            if (self.canales[x].contains("Auxiliary") || self.canales[x].contains("Output")){
-                                                
-                                                cont2 = cont2 + 1
-                                            }
-                                            
+                                        self.canales.removeAll{ value in
+                                            return value.contains("Aux")
                                         }
-                                        
-                                        self.canales.removeLast(cont2 + 1)
                                         self.next.toggle()
                                     }
                                     else{
@@ -176,7 +167,6 @@ struct ContentView: View {
                                             self.aux.append(self.canales[x])
                                         }
                                     }
-                                    self.canales.removeLast(cont+1)
                                     if(nombre.count == 21){
                                         self.index = 1
                                         
@@ -189,16 +179,10 @@ struct ContentView: View {
                                     print(nombre.count)
                                     name = nombre
                                     numeroChannel = canales.count - 4
-                                    var cont2 = 0
-                                    for var x in Range(0...self.canales.count-1)
-                                    {
-                                        if (self.canales[x].contains("Auxiliary") || self.canales[x].contains("Output")){
-                                            
-                                            cont2 = cont2 + 1
-                                        }
-                                        
+                                    self.canales.removeAll{ value in
+                                        return value.contains("Aux")
                                     }
-                                    self.canales.removeLast(cont2 + 1)
+                                    
                                     self.next.toggle()
                                 }
                                 else{
