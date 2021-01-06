@@ -120,14 +120,17 @@ struct ContentView: View {
                                         print(nombre.count)
                                         name = nombre
                                         numeroChannel = canales.count - 4
+                                        var cont2 = 0
                                         for var x in Range(0...self.canales.count-1)
                                         {
-                                            if (self.canales[x].contains("Aux") || self.canales[x].contains("Output")){
-                                                self.canales.remove(at: x)
-                                                x=x-1
+                                            if (self.canales[x].contains("Auxiliary") || self.canales[x].contains("Output")){
+                                                
+                                                cont2 = cont2 + 1
                                             }
                                             
                                         }
+                                        
+                                        self.canales.removeLast(cont2 + 1)
                                         self.next.toggle()
                                     }
                                     else{
@@ -186,14 +189,16 @@ struct ContentView: View {
                                     print(nombre.count)
                                     name = nombre
                                     numeroChannel = canales.count - 4
+                                    var cont2 = 0
                                     for var x in Range(0...self.canales.count-1)
                                     {
                                         if (self.canales[x].contains("Auxiliary") || self.canales[x].contains("Output")){
-                                            self.canales.remove(at: x)
-                                            x=x-1
+                                            
+                                            cont2 = cont2 + 1
                                         }
                                         
                                     }
+                                    self.canales.removeLast(cont2 + 1)
                                     self.next.toggle()
                                 }
                                 else{
