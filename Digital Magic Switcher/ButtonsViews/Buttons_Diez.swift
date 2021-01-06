@@ -112,7 +112,7 @@ struct Buttons_Diez: View {
                 
             VStack{
                 if next{
-                Spacer()
+                Spacer(minLength: 70)
                 HStack{
                     boton(nombre:self.$channelsName,id: self.$setid1, ip: self.$ip ,num: 1, buttons: self.$showB1, collection: self.$collection, activo: self.$activo1, tamaño: 150, aux: self.$indexAux, index: self.$index, disable: self.$showB2)
                     boton(nombre:self.$channelsName,id: self.$setid2, ip: self.$ip ,num: 2, buttons: self.$showB1, collection: self.$collection, activo: self.$activo2, tamaño: 150, aux: self.$indexAux, index: self.$index, disable: self.$showB2)
@@ -260,13 +260,17 @@ struct boton: View{
                 }
                 
             }
-        }){
+        })
+        {
+            HStack{
             Text(id>nombre.count-1 ?  nombre[0] : nombre[id])
+            }
+            .frame(maxWidth:.infinity, maxHeight: .infinity)
+            .background(buttons[num-1] ? Color(red: 237, green: 0, blue: 0, opacity: 100): Color.gray )
+            .padding(.vertical)
+            .foregroundColor(.white)
         }
-        .frame(maxWidth:180, maxHeight: self.tamaño)
-        .background(buttons[num-1] ? Color(red: 237, green: 0, blue: 0, opacity: 100): Color.gray )
-        .padding(.vertical)
-        .foregroundColor(.white)
+        
         .disabled(disable[num-1])
     }
     func sendData(completitionHandler: () -> Void){
