@@ -120,7 +120,7 @@ struct ContentView: View {
                                         name = nombre
                                         numeroChannel = canales.count - 4
                                         self.canales.removeAll{ value in
-                                            return value.contains("Aux")
+                                            return value.contains("Aux") || value.contains("Out")
                                         }
                                         self.next.toggle()
                                     }
@@ -180,7 +180,7 @@ struct ContentView: View {
                                     name = nombre
                                     numeroChannel = canales.count - 4
                                     self.canales.removeAll{ value in
-                                        return value.contains("Aux")
+                                        return value.contains("Aux") || value.contains("Out")
                                     }
                                     
                                     self.next.toggle()

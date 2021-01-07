@@ -238,9 +238,11 @@ struct boton: View{
     @Binding var disable : [Bool]
     var body : some View{
         Button(action:{
+            DispatchQueue.main.async {
+              
             if(activo)
             {
-                DispatchQueue.main.async {
+                
             for x in Range(0...39)
             {
                 if (x==num-1)
@@ -271,10 +273,10 @@ struct boton: View{
                         }
                     }
                 }
-                }
+                
                 
             }
-        })
+            }})
         {
             HStack{
             Text(id>nombre.count-1 ?  nombre[0] : nombre[id])
