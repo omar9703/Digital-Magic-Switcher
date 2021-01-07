@@ -17,7 +17,7 @@ class AppDelegate: NSObject, UIApplicationDelegate {
     return AppDelegate.orientationLock
     }
 }
-
+//ultima version
 @main
 struct Digital_Magic_SwitcherApp: App {
     var body: some Scene {
