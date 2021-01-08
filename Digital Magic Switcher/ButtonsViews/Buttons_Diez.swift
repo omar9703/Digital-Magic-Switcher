@@ -242,7 +242,10 @@ struct boton: View{
               
             if(activo)
             {
-                
+                for x in Range(0...39)
+                {
+                    disable[x] = true
+                }
             for x in Range(0...39)
             {
                 if (x==num-1)
@@ -255,18 +258,11 @@ struct boton: View{
                 }
                 
             }
-            for x in Range(0...39)
-            {
-                disable[x] = true
-            }
-                
-                    
-                
                 sendData {
-                    for x in Range(0...39)
+                  for x in Range(0...39)
                     {
-                        if(x == num-1){
-                            disable[x]=true
+                       if(x == num-1){
+                           disable[x]=true
                         }
                         else{
                         disable[x] = false
@@ -298,7 +294,8 @@ struct boton: View{
         try client.write(buf!)
         var buffer = [UInt8](repeating: 0, count: 100)
         var numberOfReadBytes = try client.read(&buffer, size: 100)
-      
+            try client.wait(for: .write, timeout: 0.2)
+            try client.wait(for: .read, timeout: 0.2)
         buf = stringToBytes("800c310a0000000000780000")
         try client.write(buf!)
         var x = 0
