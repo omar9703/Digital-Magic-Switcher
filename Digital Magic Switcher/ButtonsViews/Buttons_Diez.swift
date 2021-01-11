@@ -92,6 +92,7 @@ struct Buttons_Diez: View {
     @State var activo38 = UserDefaults.standard.bool(forKey: "ac38")
     @State var activo39 = UserDefaults.standard.bool(forKey: "ac39")
     @State var activo40 = UserDefaults.standard.bool(forKey: "ac40")
+    @State var sem = DispatchSemaphore(value: 2)
     @Binding var collection : [Int:String]
     @Binding var ip : String
     @Binding var next : Bool
@@ -109,99 +110,99 @@ struct Buttons_Diez: View {
             Image("chido")
                 .resizable()
                 .scaledToFill()
-                
+            
             VStack{
                 if next{
-                Spacer(minLength: 70)
+                    Spacer(minLength: 70)
                     
-                HStack{
-                    Group{
-                    boton(nombre:self.$channelsName,id: self.$setid1, ip: self.$ip ,num: 1, buttons: self.$showB1, collection: self.$collection, activo: self.$activo1, tamaño: 150, aux: self.$indexAux, index: self.$index, disable: self.$showB2)
-                    Spacer(minLength: 5)
-                    boton(nombre:self.$channelsName,id: self.$setid2, ip: self.$ip ,num: 2, buttons: self.$showB1, collection: self.$collection, activo: self.$activo2, tamaño: 150, aux: self.$indexAux, index: self.$index, disable: self.$showB2)
-                    Spacer(minLength: 5)
-                    boton(nombre:self.$channelsName,id: self.$setid3, ip: self.$ip ,num: 3, buttons: self.$showB1, collection: self.$collection, activo: self.$activo3, tamaño: 150, aux: self.$indexAux, index: self.$index, disable: self.$showB2)
-                    Spacer(minLength: 5)
-                    boton(nombre:self.$channelsName,id: self.$setid4, ip: self.$ip ,num: 4, buttons: self.$showB1, collection: self.$collection, activo: self.$activo4, tamaño: 150, aux: self.$indexAux, index: self.$index, disable: self.$showB2)
-                    Spacer(minLength: 5)
-                    boton(nombre:self.$channelsName,id: self.$setid5, ip: self.$ip ,num: 5, buttons: self.$showB1, collection: self.$collection, activo: self.$activo5, tamaño: 150 , aux: self.$indexAux, index: self.$index, disable: self.$showB2)
-                    
-                    }
-                }.padding()
-                Spacer()
-                HStack{
-                    boton(nombre:self.$channelsName,id: self.$setid6, ip: self.$ip ,num: 6, buttons: self.$showB1, collection: self.$collection, activo: self.$activo6, tamaño: 150, aux: self.$indexAux, index: self.$index, disable: self.$showB2)
-                    Spacer(minLength: 5)
-                    boton(nombre:self.$channelsName,id: self.$setid7, ip: self.$ip ,num: 7, buttons: self.$showB1, collection: self.$collection, activo: self.$activo7, tamaño: 150, aux: self.$indexAux, index: self.$index, disable: self.$showB2)
-                    Spacer(minLength: 5)
-                    boton(nombre:self.$channelsName,id: self.$setid8, ip: self.$ip ,num: 8, buttons: self.$showB1, collection: self.$collection, activo: self.$activo8, tamaño: 150, aux: self.$indexAux, index: self.$index, disable: self.$showB2)
-                    Spacer(minLength: 5)
-                    boton(nombre:self.$channelsName,id: self.$setid9, ip: self.$ip ,num: 9, buttons: self.$showB1, collection: self.$collection, activo: self.$activo9, tamaño: 150, aux: self.$indexAux, index: self.$index, disable: self.$showB2)
-                    Spacer(minLength: 5)
-                    boton(nombre:self.$channelsName,id: self.$setid10, ip: self.$ip ,num: 10, buttons: self.$showB1, collection: self.$collection, activo: self.$activo10, tamaño: 150, aux: self.$indexAux, index: self.$index, disable: self.$showB2)
-                }.padding()
-                Spacer()
+                    HStack{
+                        Group{
+                            boton(nombre:self.$channelsName,id: self.$setid1, ip: self.$ip, sem: self.$sem ,num: 1, buttons: self.$showB1, collection: self.$collection, activo: self.$activo1, tamaño: 150, aux: self.$indexAux, index: self.$index, disable: self.$showB2)
+                            Spacer(minLength: 5)
+                            boton(nombre:self.$channelsName,id: self.$setid2, ip: self.$ip, sem: self.$sem ,num: 2, buttons: self.$showB1, collection: self.$collection, activo: self.$activo2, tamaño: 150, aux: self.$indexAux, index: self.$index, disable: self.$showB2)
+                            Spacer(minLength: 5)
+                            boton(nombre:self.$channelsName,id: self.$setid3, ip: self.$ip, sem: self.$sem ,num: 3, buttons: self.$showB1, collection: self.$collection, activo: self.$activo3, tamaño: 150, aux: self.$indexAux, index: self.$index, disable: self.$showB2)
+                            Spacer(minLength: 5)
+                            boton(nombre:self.$channelsName,id: self.$setid4, ip: self.$ip, sem: self.$sem ,num: 4, buttons: self.$showB1, collection: self.$collection, activo: self.$activo4, tamaño: 150, aux: self.$indexAux, index: self.$index, disable: self.$showB2)
+                            Spacer(minLength: 5)
+                            boton(nombre:self.$channelsName,id: self.$setid5, ip: self.$ip, sem: self.$sem ,num: 5, buttons: self.$showB1, collection: self.$collection, activo: self.$activo5, tamaño: 150 , aux: self.$indexAux, index: self.$index, disable: self.$showB2)
+                            
+                        }
+                    }.padding()
+                    Spacer()
+                    HStack{
+                        boton(nombre:self.$channelsName,id: self.$setid6, ip: self.$ip, sem: self.$sem ,num: 6, buttons: self.$showB1, collection: self.$collection, activo: self.$activo6, tamaño: 150, aux: self.$indexAux, index: self.$index, disable: self.$showB2)
+                        Spacer(minLength: 5)
+                        boton(nombre:self.$channelsName,id: self.$setid7, ip: self.$ip, sem: self.$sem ,num: 7, buttons: self.$showB1, collection: self.$collection, activo: self.$activo7, tamaño: 150, aux: self.$indexAux, index: self.$index, disable: self.$showB2)
+                        Spacer(minLength: 5)
+                        boton(nombre:self.$channelsName,id: self.$setid8, ip: self.$ip, sem: self.$sem ,num: 8, buttons: self.$showB1, collection: self.$collection, activo: self.$activo8, tamaño: 150, aux: self.$indexAux, index: self.$index, disable: self.$showB2)
+                        Spacer(minLength: 5)
+                        boton(nombre:self.$channelsName,id: self.$setid9, ip: self.$ip, sem: self.$sem ,num: 9, buttons: self.$showB1, collection: self.$collection, activo: self.$activo9, tamaño: 150, aux: self.$indexAux, index: self.$index, disable: self.$showB2)
+                        Spacer(minLength: 5)
+                        boton(nombre:self.$channelsName,id: self.$setid10, ip: self.$ip, sem: self.$sem ,num: 10, buttons: self.$showB1, collection: self.$collection, activo: self.$activo10, tamaño: 150, aux: self.$indexAux, index: self.$index, disable: self.$showB2)
+                    }.padding()
+                    Spacer()
                 }
                 if next2{
                     Spacer(minLength: 80)
                     HStack{
-                        boton(nombre:self.$channelsName,id: self.$setid1, ip: self.$ip ,num: 1, buttons: self.$showB1, collection: self.$collection, activo: self.$activo1, tamaño: 190, aux: self.$indexAux, index: self.$index, disable: self.$showB2)
+                        boton(nombre:self.$channelsName,id: self.$setid1, ip: self.$ip, sem: self.$sem ,num: 1, buttons: self.$showB1, collection: self.$collection, activo: self.$activo1, tamaño: 190, aux: self.$indexAux, index: self.$index, disable: self.$showB2)
                         Spacer()
-                        boton(nombre:self.$channelsName,id: self.$setid2, ip: self.$ip ,num: 2, buttons: self.$showB1, collection: self.$collection, activo: self.$activo2, tamaño: 150, aux: self.$indexAux, index: self.$index, disable: self.$showB2)
+                        boton(nombre:self.$channelsName,id: self.$setid2, ip: self.$ip, sem: self.$sem ,num: 2, buttons: self.$showB1, collection: self.$collection, activo: self.$activo2, tamaño: 150, aux: self.$indexAux, index: self.$index, disable: self.$showB2)
                         Spacer()
-                        boton(nombre:self.$channelsName,id: self.$setid3, ip: self.$ip ,num: 3, buttons: self.$showB1, collection: self.$collection, activo: self.$activo3, tamaño: 150, aux: self.$indexAux, index: self.$index, disable: self.$showB2)
+                        boton(nombre:self.$channelsName,id: self.$setid3, ip: self.$ip, sem: self.$sem ,num: 3, buttons: self.$showB1, collection: self.$collection, activo: self.$activo3, tamaño: 150, aux: self.$indexAux, index: self.$index, disable: self.$showB2)
                         Spacer()
-                        boton(nombre:self.$channelsName,id: self.$setid4, ip: self.$ip ,num: 4, buttons: self.$showB1, collection: self.$collection, activo: self.$activo4, tamaño: 150, aux: self.$indexAux, index: self.$index, disable: self.$showB2)
+                        boton(nombre:self.$channelsName,id: self.$setid4, ip: self.$ip, sem: self.$sem ,num: 4, buttons: self.$showB1, collection: self.$collection, activo: self.$activo4, tamaño: 150, aux: self.$indexAux, index: self.$index, disable: self.$showB2)
                         Spacer()
-                        boton(nombre:self.$channelsName,id: self.$setid5, ip: self.$ip ,num: 5, buttons: self.$showB1, collection: self.$collection, activo: self.$activo5  , tamaño: 150 , aux: self.$indexAux, index: self.$index, disable: self.$showB2)
+                        boton(nombre:self.$channelsName,id: self.$setid5, ip: self.$ip, sem: self.$sem ,num: 5, buttons: self.$showB1, collection: self.$collection, activo: self.$activo5  , tamaño: 150 , aux: self.$indexAux, index: self.$index, disable: self.$showB2)
                     }.padding()
                     
                     HStack{
-                        boton(nombre:self.$channelsName,id: self.$setid6, ip: self.$ip ,num: 6, buttons: self.$showB1, collection: self.$collection, activo: self.$activo6, tamaño: .infinity, aux: self.$indexAux, index: self.$index, disable: self.$showB2)
+                        boton(nombre:self.$channelsName,id: self.$setid6, ip: self.$ip, sem: self.$sem ,num: 6, buttons: self.$showB1, collection: self.$collection, activo: self.$activo6, tamaño: .infinity, aux: self.$indexAux, index: self.$index, disable: self.$showB2)
                         Spacer()
-                        boton(nombre:self.$channelsName,id: self.$setid7, ip: self.$ip ,num: 7, buttons: self.$showB1, collection: self.$collection, activo: self.$activo7, tamaño: .infinity, aux: self.$indexAux, index: self.$index, disable: self.$showB2)
+                        boton(nombre:self.$channelsName,id: self.$setid7, ip: self.$ip, sem: self.$sem ,num: 7, buttons: self.$showB1, collection: self.$collection, activo: self.$activo7, tamaño: .infinity, aux: self.$indexAux, index: self.$index, disable: self.$showB2)
                         Spacer()
-                        boton(nombre:self.$channelsName,id: self.$setid8, ip: self.$ip ,num: 8, buttons: self.$showB1, collection: self.$collection, activo: self.$activo8, tamaño: .infinity, aux: self.$indexAux, index: self.$index, disable: self.$showB2)
+                        boton(nombre:self.$channelsName,id: self.$setid8, ip: self.$ip, sem: self.$sem ,num: 8, buttons: self.$showB1, collection: self.$collection, activo: self.$activo8, tamaño: .infinity, aux: self.$indexAux, index: self.$index, disable: self.$showB2)
                         Spacer()
-                        boton(nombre:self.$channelsName,id: self.$setid9, ip: self.$ip ,num: 9, buttons: self.$showB1, collection: self.$collection, activo: self.$activo9, tamaño: .infinity, aux: self.$indexAux, index: self.$index, disable: self.$showB2)
+                        boton(nombre:self.$channelsName,id: self.$setid9, ip: self.$ip, sem: self.$sem ,num: 9, buttons: self.$showB1, collection: self.$collection, activo: self.$activo9, tamaño: .infinity, aux: self.$indexAux, index: self.$index, disable: self.$showB2)
                         Spacer()
-                        boton(nombre:self.$channelsName,id: self.$setid10, ip: self.$ip ,num: 10, buttons: self.$showB1, collection: self.$collection, activo: self.$activo10, tamaño: .infinity, aux: self.$indexAux, index: self.$index, disable: self.$showB2)
+                        boton(nombre:self.$channelsName,id: self.$setid10, ip: self.$ip, sem: self.$sem ,num: 10, buttons: self.$showB1, collection: self.$collection, activo: self.$activo10, tamaño: .infinity, aux: self.$indexAux, index: self.$index, disable: self.$showB2)
                     }.padding()
                     Spacer()
                     HStack{
-                        boton(nombre:self.$channelsName,id: self.$setid11, ip: self.$ip ,num: 11, buttons: self.$showB1, collection: self.$collection, activo: self.$activo11, tamaño: .infinity, aux: self.$indexAux, index: self.$index, disable: self.$showB2)
+                        boton(nombre:self.$channelsName,id: self.$setid11, ip: self.$ip, sem: self.$sem ,num: 11, buttons: self.$showB1, collection: self.$collection, activo: self.$activo11, tamaño: .infinity, aux: self.$indexAux, index: self.$index, disable: self.$showB2)
                         Spacer()
-                        boton(nombre:self.$channelsName,id: self.$setid12, ip: self.$ip ,num: 12, buttons: self.$showB1, collection: self.$collection, activo: self.$activo12, tamaño: .infinity, aux: self.$indexAux, index: self.$index, disable: self.$showB2)
+                        boton(nombre:self.$channelsName,id: self.$setid12, ip: self.$ip, sem: self.$sem ,num: 12, buttons: self.$showB1, collection: self.$collection, activo: self.$activo12, tamaño: .infinity, aux: self.$indexAux, index: self.$index, disable: self.$showB2)
                         Spacer()
-                        boton(nombre:self.$channelsName,id: self.$setid13, ip: self.$ip ,num: 13, buttons: self.$showB1, collection: self.$collection, activo: self.$activo13, tamaño: .infinity, aux: self.$indexAux, index: self.$index, disable: self.$showB2)
+                        boton(nombre:self.$channelsName,id: self.$setid13, ip: self.$ip, sem: self.$sem ,num: 13, buttons: self.$showB1, collection: self.$collection, activo: self.$activo13, tamaño: .infinity, aux: self.$indexAux, index: self.$index, disable: self.$showB2)
                         Spacer()
-                        boton(nombre:self.$channelsName,id: self.$setid14, ip: self.$ip ,num: 14, buttons: self.$showB1, collection: self.$collection, activo: self.$activo14, tamaño: .infinity, aux: self.$indexAux, index: self.$index, disable: self.$showB2)
+                        boton(nombre:self.$channelsName,id: self.$setid14, ip: self.$ip, sem: self.$sem ,num: 14, buttons: self.$showB1, collection: self.$collection, activo: self.$activo14, tamaño: .infinity, aux: self.$indexAux, index: self.$index, disable: self.$showB2)
                         Spacer()
-                        boton(nombre:self.$channelsName,id: self.$setid15, ip: self.$ip ,num: 15, buttons: self.$showB1, collection: self.$collection, activo: self.$activo15, tamaño: .infinity, aux: self.$indexAux, index: self.$index, disable: self.$showB2)
+                        boton(nombre:self.$channelsName,id: self.$setid15, ip: self.$ip, sem: self.$sem ,num: 15, buttons: self.$showB1, collection: self.$collection, activo: self.$activo15, tamaño: .infinity, aux: self.$indexAux, index: self.$index, disable: self.$showB2)
                         
                     }.padding()
                     Spacer()
                     HStack{
-                        boton(nombre:self.$channelsName,id: self.$setid16, ip: self.$ip ,num: 16, buttons: self.$showB1, collection: self.$collection, activo: self.$activo16, tamaño: .infinity ,aux: self.$indexAux, index: self.$index, disable: self.$showB2)
+                        boton(nombre:self.$channelsName,id: self.$setid16, ip: self.$ip, sem: self.$sem ,num: 16, buttons: self.$showB1, collection: self.$collection, activo: self.$activo16, tamaño: .infinity ,aux: self.$indexAux, index: self.$index, disable: self.$showB2)
                         Spacer()
-                        boton(nombre:self.$channelsName,id: self.$setid17, ip: self.$ip ,num: 17, buttons: self.$showB1, collection: self.$collection, activo: self.$activo17, tamaño: .infinity, aux: self.$indexAux, index: self.$index, disable: self.$showB2)
+                        boton(nombre:self.$channelsName,id: self.$setid17, ip: self.$ip, sem: self.$sem ,num: 17, buttons: self.$showB1, collection: self.$collection, activo: self.$activo17, tamaño: .infinity, aux: self.$indexAux, index: self.$index, disable: self.$showB2)
                         Spacer()
-                        boton(nombre:self.$channelsName,id: self.$setid18, ip: self.$ip ,num: 18, buttons: self.$showB1, collection: self.$collection, activo: self.$activo18, tamaño: .infinity, aux: self.$indexAux, index: self.$index, disable: self.$showB2)
+                        boton(nombre:self.$channelsName,id: self.$setid18, ip: self.$ip, sem: self.$sem ,num: 18, buttons: self.$showB1, collection: self.$collection, activo: self.$activo18, tamaño: .infinity, aux: self.$indexAux, index: self.$index, disable: self.$showB2)
                         Spacer()
-                        boton(nombre:self.$channelsName,id: self.$setid19, ip: self.$ip ,num: 19, buttons: self.$showB1, collection: self.$collection, activo: self.$activo19, tamaño: .infinity, aux: self.$indexAux, index: self.$index, disable: self.$showB2)
+                        boton(nombre:self.$channelsName,id: self.$setid19, ip: self.$ip, sem: self.$sem ,num: 19, buttons: self.$showB1, collection: self.$collection, activo: self.$activo19, tamaño: .infinity, aux: self.$indexAux, index: self.$index, disable: self.$showB2)
                         Spacer()
-                        boton(nombre:self.$channelsName,id: self.$setid20, ip: self.$ip ,num: 20, buttons: self.$showB1, collection: self.$collection, activo: self.$activo20, tamaño: .infinity, aux: self.$indexAux, index: self.$index, disable: self.$showB2)
+                        boton(nombre:self.$channelsName,id: self.$setid20, ip: self.$ip, sem: self.$sem ,num: 20, buttons: self.$showB1, collection: self.$collection, activo: self.$activo20, tamaño: .infinity, aux: self.$indexAux, index: self.$index, disable: self.$showB2)
                     }.padding()
                     Spacer()
                 }
                 if next3{
                     Spacer(minLength: 90)
                     VStack{
-                    Buttons_veinte(channelsName: self.$channelsName, collection: self.$collection, setid1: self.$setid1, setid2: self.$setid2, setid3: self.$setid3, setid4: self.$setid4, setid5: self.$setid5, setid6: self.$setid6, setid7: self.$setid7, setid8: self.$setid8, setid9: self.$setid9, setid10: self.$setid10, setid11: self.$setid11, setid12: self.$setid12, setid13: self.$setid13, setid14: self.$setid14, setid15: self.$setid15, setid16: self.$setid16, setid17: self.$setid17, setid18: self.$setid18, setid19: self.$setid19, setid20: self.$setid20, ip: self.$ip, nums: self.$nums, activo1: self.$activo1,indexAux: self.$indexAux, index: self.$index, showB1: self.$showB1, showB2: self.$showB2)
-                    Buttons_veinte(channelsName: self.$channelsName, collection: self.$collection, setid1: self.$setid21, setid2: self.$setid22, setid3: self.$setid23, setid4: self.$setid24, setid5: self.$setid25, setid6: self.$setid26, setid7: self.$setid27, setid8: self.$setid28, setid9: self.$setid29, setid10: self.$setid30, setid11: self.$setid31, setid12: self.$setid32, setid13: self.$setid33, setid14: self.$setid34, setid15: self.$setid35, setid16: self.$setid36, setid17: self.$setid37, setid18: self.$setid38, setid19: self.$setid39, setid20: self.$setid40, ip: self.$ip, nums: self.$nums2, activo1: self.$activo1,indexAux : self.$indexAux, index: self.$index, showB1: self.$showB1, showB2: self.$showB2)
+                        Buttons_veinte(channelsName: self.$channelsName, collection: self.$collection, setid1: self.$setid1, setid2: self.$setid2, setid3: self.$setid3, setid4: self.$setid4, setid5: self.$setid5, setid6: self.$setid6, setid7: self.$setid7, setid8: self.$setid8, setid9: self.$setid9, setid10: self.$setid10, setid11: self.$setid11, setid12: self.$setid12, setid13: self.$setid13, setid14: self.$setid14, setid15: self.$setid15, setid16: self.$setid16, setid17: self.$setid17, setid18: self.$setid18, setid19: self.$setid19, setid20: self.$setid20, ip: self.$ip, nums: self.$nums, activo1: self.$activo1,indexAux: self.$indexAux, index: self.$index, showB1: self.$showB1, showB2: self.$showB2, sem: self.$sem)
+                        Buttons_veinte(channelsName: self.$channelsName, collection: self.$collection, setid1: self.$setid21, setid2: self.$setid22, setid3: self.$setid23, setid4: self.$setid24, setid5: self.$setid25, setid6: self.$setid26, setid7: self.$setid27, setid8: self.$setid28, setid9: self.$setid29, setid10: self.$setid30, setid11: self.$setid31, setid12: self.$setid32, setid13: self.$setid33, setid14: self.$setid34, setid15: self.$setid35, setid16: self.$setid36, setid17: self.$setid37, setid18: self.$setid38, setid19: self.$setid39, setid20: self.$setid40, ip: self.$ip, nums: self.$nums2, activo1: self.$activo1,indexAux : self.$indexAux, index: self.$index, showB1: self.$showB1, showB2: self.$showB2, sem: self.$sem)
                     }.padding()
                     Spacer(minLength: 10)
-                                        
+                    
                 }
                 
                 
@@ -220,7 +221,7 @@ struct Buttons_Diez: View {
             
         }
         
-            }
+    }
 }
 
 
@@ -228,6 +229,7 @@ struct boton: View{
     @Binding var nombre : [String]
     @Binding var id : Int
     @Binding var ip : String
+    @Binding  var sem : DispatchSemaphore
     var num : Int
     @Binding var buttons :[Bool]
     @Binding var collection : [Int:String]
@@ -238,44 +240,36 @@ struct boton: View{
     @Binding var disable : [Bool]
     var body : some View{
         Button(action:{
-            DispatchQueue.main.async {
-              
-            if(activo)
+            sem.wait()
+            if(activo )
             {
-                for x in Range(0...39)
-                {
-                    disable[x] = true
-                }
-            for x in Range(0...39)
-            {
-                if (x==num-1)
-                {
-                    buttons[x] = true
-                    
-                }
-                else{
-                    buttons[x] = false
-                }
                 
-            }
-                sendData {
-                  for x in Range(0...39)
+               
+                    sendData{
+                    
+                    for x in Range(0...39)
                     {
-                       if(x == num-1){
-                           disable[x]=true
+                        if (x==num-1)
+                        {
+                            buttons[x] = true
+                            
                         }
                         else{
-                        disable[x] = false
+                            buttons[x] = false
                         }
+                        
                     }
+                    sem.signal()
                 }
                 
                 
             }
-            }})
+            
+        }
+        )
         {
             HStack{
-            Text(id>nombre.count-1 ?  nombre[0] : nombre[id])
+                Text(id>nombre.count-1 ?  nombre[0] : nombre[id])
             }
             .frame(maxWidth:180, maxHeight: 150)
             .background(buttons[num-1] ? Color(red: 237, green: 0, blue: 0, opacity: 100): Color.gray )
@@ -283,129 +277,156 @@ struct boton: View{
             .foregroundColor(.white)
         }
         
-        .disabled(disable[num-1])
     }
-    func sendData(completitionHandler: () -> Void){
+    func sendData(completionHandler: ()->()){
+        var sigue = true
+        
         
         do{
-        let client = try Socket(.inet, type: .datagram, protocol: .udp)
-            try client.connect(port: 9910, address: self.ip)
-        var buf = stringToBytes("1014310a00000000002a00000100000000000000")
-        try client.write(buf!)
-        var buffer = [UInt8](repeating: 0, count: 100)
-        var numberOfReadBytes = try client.read(&buffer, size: 100)
-            try client.wait(for: .write, timeout: 0.2)
-            try client.wait(for: .read, timeout: 0.2)
-        buf = stringToBytes("800c310a0000000000780000")
-        try client.write(buf!)
-        var x = 0
-        while x<21 {
-            x+=1
-            buffer = [UInt8](repeating: 0, count: 1500)
-            numberOfReadBytes = try client.read(&buffer, size: 1500)
+            while true{
+                sigue = true
+                let client = try Socket(.inet, type: .datagram, protocol: .udp)
+                try client.connect(port: 9910, address: self.ip)
+                //print("s1")
+                let wread = try client.wait(for: .read, timeout: 0.1)
+                //print("s2")
+                let wwrite = try client.wait(for: .write, timeout: 0.1)
+                //print("s3")
+                var buf = stringToBytes("1014310a00000000002a00000100000000000000")
+                try client.write(buf!)
+                var buffer = [UInt8](repeating: 0, count: 100)
+                var numberOfReadBytes = try client.read(&buffer, size: 100)
+                
+                buf = stringToBytes("800c310a0000000000780000")
+                try client.write(buf!)
+                try client.set(option: .receiveTimeout, TimeValue(seconds: 0, milliseconds:50))
+                try client.set(option: .sendTimeout, TimeValue(seconds: 0, milliseconds:50))
+                var x = 0
+                var veinte = 0
+                
+                while x<21 {
+                    x+=1
+                    buffer = [UInt8](repeating: 0, count: 1500)
+                    numberOfReadBytes = try client.read(&buffer, size: 1500)
+                    //print(numberOfReadBytes,x,num)
+                    if(numberOfReadBytes == 20){
+                        veinte += 1
+                        //print(veinte)
+                        if veinte == 1{
+                            sigue = false
+                            //print(veinte)
+                            break
+                        }
+                    }
+                    
+                }
+                
+                if sigue{
+                    
+                    var data = stringToBytes("800c")
+                    var d2 = stringToBytes("00150000002a0000")
+                    let d1 = buffer[2...3]
+                    var d3 = data! + d1 + d2!
+                    try client.write(d3)
+                    data = stringToBytes("081c")
+                    d2 = stringToBytes("0000000000d700010010844353546f445fc7da2000000168")
+                    d3 = data! + d1 + d2!
+                    try client.write(d3)
+                    buffer = [UInt8](repeating: 0, count: 80)
+                    numberOfReadBytes = try! client.read(&buffer, size: 80)
+                    data = stringToBytes("0818")
+                    d2 = stringToBytes("0000000000d70002000c18ea56754d6f0064de05")
+                    d3 = data! + d1 + d2!
+                    try client.write(d3)
+                    buffer = [UInt8](repeating: 0, count: 100)
+                    numberOfReadBytes = try! client.read(&buffer, size: 100)
+                    
+                    
+                    data = stringToBytes("0824")
+                    d2 = stringToBytes("0000000000d70003000c6f0153414c4e002818ea000c18ea53414c4e00000000")
+                    d3 = data! + d1 + d2!
+                    try client.write(d3)
+                    buffer = [UInt8](repeating: 0, count: 100)
+                    numberOfReadBytes = try client.read(&buffer, size: 100)
+                    
+                    
+                    data = stringToBytes("0d8c")
+                    d2 = stringToBytes("0000000000d700040020000043436d6401040400010000010000000000002a2f0000000000000000001000004343646f0101010d01000000001000004343646f0101010101000000001000004343646f0101010201000000001000004343646f0101010501000000001000004343646f0101010801000000001000004343646f0101040401000000001000004343646f0101080001000000001000004343646f0101080101000000001000004343646f0101080201000000001000004343646f0101080301000000001000004343646f0101080401000000001000004343646f0101080501000000001000004343646f01010806017f00000020000043436d6402040400010000010000000000002a2f0000000000000000001000004343646f0102010d01000000001000004343646f0102010101000000001000004343646f0102010201000000001000004343646f0102010501000000001000004343646f0102010801000000001000004343646f0102040401000000001000004343646f0102080001000000001000004343646f0102080101000000001000004343646f0102080201000000001000004343646f0102080301000000001000004343646f0102080401000000001000004343646f0102080501000000001000004343646f01020806017f00000020000043436d6403040400010000010000000000002a2f0000000000000000001000004343646f0103010d01000000001000004343646f0103010101000000001000004343646f0103010201000000001000004343646f0103010501000000001000004343646f0103010801000000001000004343646f0103040401000000001000004343646f0103080001000000001000004343646f0103080101000000001000004343646f0103080201000000001000004343646f0103080301000000001000004343646f0103080401000000001000004343646f0103080501000000001000004343646f01030806017f00000020000043436d6404040400010000010000000000002a2f0000000000000000001000004343646f0104010d01000000001000004343646f0104010101000000001000004343646f0104010201000000001000004343646f0104010501000000001000004343646f0104010801000000001000004343646f0104040401000000001000004343646f0104080001000000001000004343646f0104080101000000001000004343646f0104080201000000001000004343646f0104080301000000001000004343646f0104080401000000001000004343646f0104080501000000001000004343646f01040806017f00000020000043436d6405040400010000010000000000002a2f0000000000000000001000004343646f0105010d01000000001000004343646f0105010101000000001000004343646f0105010201000000001000004343646f0105010501000000001000004343646f0105010801000000001000004343646f0105040401000000001000004343646f0105080001000000001000004343646f0105080101000000001000004343646f0105080201000000001000004343646f0105080301000000001000004343646f0105080401000000001000004343646f0105080501000000001000004343646f01050806017f00000020000043436d6406040400010000010000000000002a2f0000000000000000001000004343646f0106010d01000000001000004343646f0106010101000000001000004343646f0106010201000000001000004343646f0106010501000000001000004343646f0106010801000000001000004343646f0106040401000000001000004343646f0106080001000000001000004343646f0106080101000000001000004343646f0106080201000000001000004343646f0106080301000000001000004343646f0106080401000000")
+                    d3 = data! + d1 + d2!
+                    try client.write(d3)
+                    
+                    data = stringToBytes("0bec")
+                    d2 = stringToBytes("00000000003e0005001000004343646f0106080501000000001000004343646f01060806017f00000020000043436d6407040400010000010000000000002a2f0000000000000000001000004343646f0107010d01000000001000004343646f0107010101000000001000004343646f0107010201000000001000004343646f0107010501000000001000004343646f0107010801000000001000004343646f0107040401000000001000004343646f0107080001000000001000004343646f0107080101000000001000004343646f0107080201000000001000004343646f0107080301000000001000004343646f0107080401000000001000004343646f0107080501000000001000004343646f01070806017f00000020000043436d6408040400010000010000000000002a2f0000000000000000001000004343646f0108010d01000000001000004343646f0108010101000000001000004343646f0108010201000000001000004343646f0108010501000000001000004343646f0108010801000000001000004343646f0108040401000000001000004343646f0108080001000000001000004343646f0108080101000000001000004343646f0108080201000000001000004343646f0108080301000000001000004343646f0108080401000000001000004343646f0108080501000000001000004343646f01080806017f00000020000043436d6409040400010000010000000000002a2f0000000000000000001000004343646f0109010d01000000001000004343646f0109010101000000001000004343646f0109010201000000001000004343646f0109010501000000001000004343646f0109010801000000001000004343646f0109040401000000001000004343646f0109080001000000001000004343646f0109080101000000001000004343646f0109080201000000001000004343646f0109080301000000001000004343646f0109080401000000001000004343646f0109080501000000001000004343646f01090806017f00000020000043436d640a040400010000010000000000002a2f0000000000000000001000004343646f010a010d01000000001000004343646f010a010101000000001000004343646f010a010201000000001000004343646f010a010501000000001000004343646f010a010801000000001000004343646f010a040401000000001000004343646f010a080001000000001000004343646f010a080101000000001000004343646f010a080201000000001000004343646f010a080301000000001000004343646f010a080401000000001000004343646f010a080501000000001000004343646f010a0806017f0000")
+                    d3 = data! + d1 + d2!
+                    try client.write(d3)
+                    
+                    buffer = [UInt8](repeating: 0, count: 1500)
+                    numberOfReadBytes = try client.read(&buffer, size: 1500)
+                    
+                    buffer = [UInt8](repeating: 0, count: 1500)
+                    numberOfReadBytes = try client.read(&buffer, size: 1500)
+                    
+                    buffer = [UInt8](repeating: 0, count: 1500)
+                    numberOfReadBytes = try client.read(&buffer, size: 1500)
+                    
+                    buffer = [UInt8](repeating: 0, count: 1500)
+                    numberOfReadBytes = try client.read(&buffer, size: 1500)
+                    
+                    data = stringToBytes("800c")
+                    d2 = stringToBytes("001a0000004800")
+                    d3 = data! + d1 + d2!
+                    try client.write(d3)
+                    buffer = [UInt8](repeating: 0, count: 100)
+                    numberOfReadBytes = try client.read(&buffer, size: 100)
+                    
+                    
+                    data = stringToBytes("0814")
+                    d2 = stringToBytes("000000000000000600086cf154695271")
+                    d3 = data! + d1 + d2!
+                    try! client.write(d3)
+                    buffer = [UInt8](repeating: 0, count: 100)
+                    numberOfReadBytes = try client.read(&buffer, size: 100)
+                    
+                    
+                    data = stringToBytes("800c")
+                    d2 = stringToBytes("001b0000004800")
+                    d3 = data! + d1 + d2!
+                    try client.write(d3)
+                    
+                    data = stringToBytes("0814")
+                    d2 = stringToBytes("000000000000000700012aff54695271")
+                    d3 = data! + d1 + d2!
+                    try client.write(d3)
+                    buffer = [UInt8](repeating: 0, count: 100)
+                    numberOfReadBytes = try client.read(&buffer, size: 100)
+                    
+                    
+                    data = stringToBytes("0814")
+                    d2 = stringToBytes("000000000000000800012aff54695271")
+                    d3 = data! + d1 + d2!
+                    try client.write(d3)
+                    data = stringToBytes("0818")
+                    d2 = stringToBytes(checkLengthChannel(self.id+self.index))
+                    d3 = data! + d1 + d2!
+                    try client.write(d3)
+                    buffer = [UInt8](repeating: 0, count: 100)
+                    numberOfReadBytes = try client.read(&buffer, size: 100)
+                    
+                    buffer = [UInt8](repeating: 0, count: 100)
+                    numberOfReadBytes = try! client.read(&buffer, size: 100)
+                    break
+                }
+                client.close()
+            }
             
-        }
-            print()
-        var data = stringToBytes("800c")
-        var d2 = stringToBytes("00150000002a0000")
-        let d1 = buffer[2...3]
-        var d3 = data! + d1 + d2!
-        try client.write(d3)
-        data = stringToBytes("081c")
-        d2 = stringToBytes("0000000000d700010010844353546f445fc7da2000000168")
-        d3 = data! + d1 + d2!
-        try client.write(d3)
-        buffer = [UInt8](repeating: 0, count: 80)
-        numberOfReadBytes = try! client.read(&buffer, size: 80)
-        
-            print("socket")
-        data = stringToBytes("0818")
-        d2 = stringToBytes("0000000000d70002000c18ea56754d6f0064de05")
-        d3 = data! + d1 + d2!
-        try client.write(d3)
-        buffer = [UInt8](repeating: 0, count: 100)
-        numberOfReadBytes = try! client.read(&buffer, size: 100)
-        
-        
-        data = stringToBytes("0824")
-        d2 = stringToBytes("0000000000d70003000c6f0153414c4e002818ea000c18ea53414c4e00000000")
-        d3 = data! + d1 + d2!
-        try client.write(d3)
-        buffer = [UInt8](repeating: 0, count: 100)
-        numberOfReadBytes = try! client.read(&buffer, size: 100)
-        
-        
-        data = stringToBytes("0d8c")
-        d2 = stringToBytes("0000000000d700040020000043436d6401040400010000010000000000002a2f0000000000000000001000004343646f0101010d01000000001000004343646f0101010101000000001000004343646f0101010201000000001000004343646f0101010501000000001000004343646f0101010801000000001000004343646f0101040401000000001000004343646f0101080001000000001000004343646f0101080101000000001000004343646f0101080201000000001000004343646f0101080301000000001000004343646f0101080401000000001000004343646f0101080501000000001000004343646f01010806017f00000020000043436d6402040400010000010000000000002a2f0000000000000000001000004343646f0102010d01000000001000004343646f0102010101000000001000004343646f0102010201000000001000004343646f0102010501000000001000004343646f0102010801000000001000004343646f0102040401000000001000004343646f0102080001000000001000004343646f0102080101000000001000004343646f0102080201000000001000004343646f0102080301000000001000004343646f0102080401000000001000004343646f0102080501000000001000004343646f01020806017f00000020000043436d6403040400010000010000000000002a2f0000000000000000001000004343646f0103010d01000000001000004343646f0103010101000000001000004343646f0103010201000000001000004343646f0103010501000000001000004343646f0103010801000000001000004343646f0103040401000000001000004343646f0103080001000000001000004343646f0103080101000000001000004343646f0103080201000000001000004343646f0103080301000000001000004343646f0103080401000000001000004343646f0103080501000000001000004343646f01030806017f00000020000043436d6404040400010000010000000000002a2f0000000000000000001000004343646f0104010d01000000001000004343646f0104010101000000001000004343646f0104010201000000001000004343646f0104010501000000001000004343646f0104010801000000001000004343646f0104040401000000001000004343646f0104080001000000001000004343646f0104080101000000001000004343646f0104080201000000001000004343646f0104080301000000001000004343646f0104080401000000001000004343646f0104080501000000001000004343646f01040806017f00000020000043436d6405040400010000010000000000002a2f0000000000000000001000004343646f0105010d01000000001000004343646f0105010101000000001000004343646f0105010201000000001000004343646f0105010501000000001000004343646f0105010801000000001000004343646f0105040401000000001000004343646f0105080001000000001000004343646f0105080101000000001000004343646f0105080201000000001000004343646f0105080301000000001000004343646f0105080401000000001000004343646f0105080501000000001000004343646f01050806017f00000020000043436d6406040400010000010000000000002a2f0000000000000000001000004343646f0106010d01000000001000004343646f0106010101000000001000004343646f0106010201000000001000004343646f0106010501000000001000004343646f0106010801000000001000004343646f0106040401000000001000004343646f0106080001000000001000004343646f0106080101000000001000004343646f0106080201000000001000004343646f0106080301000000001000004343646f0106080401000000")
-        d3 = data! + d1 + d2!
-        try client.write(d3)
-        
-        data = stringToBytes("0bec")
-        d2 = stringToBytes("00000000003e0005001000004343646f0106080501000000001000004343646f01060806017f00000020000043436d6407040400010000010000000000002a2f0000000000000000001000004343646f0107010d01000000001000004343646f0107010101000000001000004343646f0107010201000000001000004343646f0107010501000000001000004343646f0107010801000000001000004343646f0107040401000000001000004343646f0107080001000000001000004343646f0107080101000000001000004343646f0107080201000000001000004343646f0107080301000000001000004343646f0107080401000000001000004343646f0107080501000000001000004343646f01070806017f00000020000043436d6408040400010000010000000000002a2f0000000000000000001000004343646f0108010d01000000001000004343646f0108010101000000001000004343646f0108010201000000001000004343646f0108010501000000001000004343646f0108010801000000001000004343646f0108040401000000001000004343646f0108080001000000001000004343646f0108080101000000001000004343646f0108080201000000001000004343646f0108080301000000001000004343646f0108080401000000001000004343646f0108080501000000001000004343646f01080806017f00000020000043436d6409040400010000010000000000002a2f0000000000000000001000004343646f0109010d01000000001000004343646f0109010101000000001000004343646f0109010201000000001000004343646f0109010501000000001000004343646f0109010801000000001000004343646f0109040401000000001000004343646f0109080001000000001000004343646f0109080101000000001000004343646f0109080201000000001000004343646f0109080301000000001000004343646f0109080401000000001000004343646f0109080501000000001000004343646f01090806017f00000020000043436d640a040400010000010000000000002a2f0000000000000000001000004343646f010a010d01000000001000004343646f010a010101000000001000004343646f010a010201000000001000004343646f010a010501000000001000004343646f010a010801000000001000004343646f010a040401000000001000004343646f010a080001000000001000004343646f010a080101000000001000004343646f010a080201000000001000004343646f010a080301000000001000004343646f010a080401000000001000004343646f010a080501000000001000004343646f010a0806017f0000")
-        d3 = data! + d1 + d2!
-        try client.write(d3)
-        
-        buffer = [UInt8](repeating: 0, count: 1500)
-        numberOfReadBytes = try client.read(&buffer, size: 1500)
-        
-        buffer = [UInt8](repeating: 0, count: 1500)
-        numberOfReadBytes = try client.read(&buffer, size: 1500)
-        
-        buffer = [UInt8](repeating: 0, count: 1500)
-        numberOfReadBytes = try client.read(&buffer, size: 1500)
-        
-        buffer = [UInt8](repeating: 0, count: 1500)
-        numberOfReadBytes = try client.read(&buffer, size: 1500)
-        
-        
-        data = stringToBytes("800c")
-        d2 = stringToBytes("001a0000004800")
-        d3 = data! + d1 + d2!
-        try client.write(d3)
-        buffer = [UInt8](repeating: 0, count: 100)
-        numberOfReadBytes = try client.read(&buffer, size: 100)
-        
-        
-        data = stringToBytes("0814")
-        d2 = stringToBytes("000000000000000600086cf154695271")
-        d3 = data! + d1 + d2!
-        try! client.write(d3)
-        buffer = [UInt8](repeating: 0, count: 100)
-        numberOfReadBytes = try client.read(&buffer, size: 100)
-        
-        
-        data = stringToBytes("800c")
-        d2 = stringToBytes("001b0000004800")
-        d3 = data! + d1 + d2!
-        try client.write(d3)
-        
-        data = stringToBytes("0814")
-        d2 = stringToBytes("000000000000000700012aff54695271")
-        d3 = data! + d1 + d2!
-        try client.write(d3)
-        buffer = [UInt8](repeating: 0, count: 100)
-        numberOfReadBytes = try client.read(&buffer, size: 100)
-        
-        
-        data = stringToBytes("0814")
-        d2 = stringToBytes("000000000000000800012aff54695271")
-        d3 = data! + d1 + d2!
-        try client.write(d3)
-        data = stringToBytes("0818")
-            d2 = stringToBytes(checkLengthChannel(self.id+self.index))
-        d3 = data! + d1 + d2!
-        try client.write(d3)
-        buffer = [UInt8](repeating: 0, count: 100)
-        numberOfReadBytes = try client.read(&buffer, size: 100)
-       
-        buffer = [UInt8](repeating: 0, count: 100)
-        numberOfReadBytes = try! client.read(&buffer, size: 100)
-            completitionHandler()
+            //print("hecho", num)
+            completionHandler()
         }
         catch let error as NSError{
-            print(error.localizedDescription)
-            self.buttons[num-1] = false
-            completitionHandler()
+            
+            print("error",error.localizedDescription)
+            completionHandler()
+            
         }
         
         
@@ -413,7 +434,7 @@ struct boton: View{
     }
     func checkLengthChannel(_ valor:Int) -> String{
         let l = String(valor)
-        print(String(id,radix: 16))
+        
         var put = ""
         let out = String(aux,radix: 16)
         if out.count == 1{
@@ -422,14 +443,14 @@ struct boton: View{
         else{
             put = out
         }
-        if(nombre[id] == "Color Bars\0" || nombre[id] == "Color 1\0" || nombre[id] == "Color 2\0" || nombre[id] == "Clean Feed 1\0" || nombre[id] == "Clean Feed 2\0" || nombre[id] == "Clean Feed 3\0" || nombre[id] == "Clean Feed 4\0" || nombre[id] == "Preview\0" || nombre[id] == "Program\0"){
+        if(nombre[id] == "Color Bars\0" || nombre[id] == "Color 1\0" || nombre[id] == "Color 2\0" || nombre[id] == "Color 3\0" || nombre[id] == "Color 4\0" || nombre[id] == "Clean Feed 1\0" || nombre[id] == "Clean Feed 2\0" || nombre[id] == "Clean Feed 3\0" || nombre[id] == "Clean Feed 4\0" || nombre[id] == "Preview\0" || nombre[id] == "Program\0"){
             
             if(nombre[id] == "Color Bars\0"){
-                print("bars")
+                
                 return "0000000000000009000ce50b4341755301\(put)03e8"
             }
             if(nombre[id] == "Color 1\0"){
-                print("color")
+                
                 return "0000000000000009000ce50b4341755301\(put)07d1" // Color 1
                 
             }
@@ -439,45 +460,57 @@ struct boton: View{
                 return "0000000000000009000ce50b4341755301\(put)07d2" // Color 2
                 
             }
+            if (nombre[id] == "Color 3\0")
+            {
+                print("colo3")
+                return "0000000000000009000ce50b4341755301\(put)07d3" // Color 3
+                
+            }
+            if (nombre[id] == "Color 4\0")
+            {
+                print("colo4")
+                return "0000000000000009000ce50b4341755301\(put)07d4" // Color 4
+                
+            }
             if (nombre[id] == "Clean Feed 1\0"){
                 print("black")
-                return "0000000000000009000ce50b4341755301\(put)1b59" // black
+                return "0000000000000009000ce50b4341755301\(put)1b59" // cf1
                 
             }
             if (nombre[id] == "Clean Feed 2\0"){
                 print("black")
-                return "0000000000000009000ce50b4341755301\(put)1b5a" // black
+                return "0000000000000009000ce50b4341755301\(put)1b5a" // cf2
                 
             }
             if (nombre[id] == "Clean Feed 3\0"){
                 print("black")
-                return "0000000000000009000ce50b4341755301\(put)1b5b" // black
+                return "0000000000000009000ce50b4341755301\(put)1b5b" // cf3
                 
             }
             if (nombre[id] == "Clean Feed 4\0"){
                 print("black")
-                return "0000000000000009000ce50b4341755301\(put)1b5c" // black
+                return "0000000000000009000ce50b4341755301\(put)1b5c" // cf4
                 
             }
             if (nombre[id] == "Preview\0"){
                 print("black")
-                return "0000000000000009000ce50b4341755301\(put)271b" // black
+                return "0000000000000009000ce50b4341755301\(put)271b" // preview
                 
             }
             if (nombre[id] == "Program\0"){
                 print("black")
-                return "0000000000000009000ce50b4341755301\(put)271a" // black
+                return "0000000000000009000ce50b4341755301\(put)271a" // program
                 
             }
-           
+            
             if(valor < nombre.count-3 && valor > nombre.count-4 && nombre.count > 24){
-            let r = String(id+1,radix: 16)
-                print("bars")
-            return "0000000000000009000ce50b43417553010\(String(aux))000\(r)"
+                let r = String(id+1,radix: 16)
+                
+                return "0000000000000009000ce50b43417553010\(String(aux))000\(r)"
             }
             else{
                 let r = String(00,radix: 16)
-                print("ultimo")
+                
                 return "0000000000000009000ce50b43417553010\(String(aux))000\(r)"
             }
             
@@ -485,18 +518,18 @@ struct boton: View{
         }
         else{
             let value =  String(valor,radix: 16)
-            print("vaalor", value)
+            
             if (value.count == 1){
-                print("1", value,valor)
-            return "0000000000000009000ce50b4341755301\(put)000\(value)"
+                
+                return "0000000000000009000ce50b4341755301\(put)000\(value)"
             }
             else{
-                print("2", value,valor)
-            return "0000000000000009000ce50b4341755301\(put)00\(value)"
+                
+                return "0000000000000009000ce50b4341755301\(put)00\(value)"
             }
             
         }
-    
+        
         
     }
     func stringToBytes(_ string: String) -> [UInt8]? {
