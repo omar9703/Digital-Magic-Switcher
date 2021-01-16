@@ -41,6 +41,8 @@ func getName(ip :String,completionHandler: (String,[String]) -> Void){
     try client.read(&buf3,size: 2000)
     var buf4 = [UInt8](repeating: 0, count: 2000)
     try client.read(&buf4,size: 2000)
+        var buf5 = [UInt8](repeating: 0, count: 2000)
+        try client.read(&buf5,size: 2000)
     var cont = 0
         print(numberOfReadBytes)
     for x in Range(32...110){
@@ -56,7 +58,7 @@ func getName(ip :String,completionHandler: (String,[String]) -> Void){
         for x in Range(100...numberOfReadBytes){
             if(String(bytes: buffer[x...x+3], encoding: .utf8) == "InPr" )
             {
-                for y in Range((x+6)...(x+18)){
+                for y in Range((x+6)...(x+25)){
                     
                     if(buffer[y] == UInt8(0))
                     {
@@ -75,7 +77,7 @@ func getName(ip :String,completionHandler: (String,[String]) -> Void){
         for x in Range(0...numberOfReadBytes){
                 if(String(bytes: buf2[x...(x+3)], encoding: .utf8) == "InPr" )
                 {
-                    for y in Range((x+6)...(x+23)){
+                    for y in Range((x+6)...(x+29)){
                         
                         if(buf2[y] == UInt8(0))
                         {
@@ -90,7 +92,7 @@ func getName(ip :String,completionHandler: (String,[String]) -> Void){
             for x in Range(0...numberOfReadBytes){
                     if(String(bytes: buf3[x...(x+3)], encoding: .utf8) == "InPr" )
                     {
-                        for y in Range((x+6)...(x+23)){
+                        for y in Range((x+6)...(x+29)){
                             
                             if(buf3[y] == UInt8(0))
                             {
@@ -107,7 +109,7 @@ func getName(ip :String,completionHandler: (String,[String]) -> Void){
             for x in Range(0...numberOfReadBytes){
                     if(String(bytes: buf4[x...(x+3)], encoding: .utf8) == "InPr" )
                     {
-                        for y in Range((x+6)...(x+23)){
+                        for y in Range((x+6)...(x+29)){
                             
                             if(buf4[y] == UInt8(0))
                             {

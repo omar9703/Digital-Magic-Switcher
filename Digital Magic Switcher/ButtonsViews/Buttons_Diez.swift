@@ -443,11 +443,152 @@ struct boton: View{
         else{
             put = out
         }
-        if(nombre[id] == "Color Bars\0" || nombre[id] == "Color 1\0" || nombre[id] == "Color 2\0" || nombre[id] == "Color 3\0" || nombre[id] == "Color 4\0" || nombre[id] == "Clean Feed 1\0" || nombre[id] == "Clean Feed 2\0" || nombre[id] == "Clean Feed 3\0" || nombre[id] == "Clean Feed 4\0" || nombre[id] == "Preview\0" || nombre[id] == "Program\0"){
-            
+        if(nombre[id] == "Color Bars\0" || nombre[id] == "Color 1\0" || nombre[id] == "Color 2\0" || nombre[id] == "Color 3\0" || nombre[id] == "Color 4\0" || nombre[id] == "Clean Feed 1\0" || nombre[id] == "Clean Feed 2\0" || nombre[id] == "Clean Feed 3\0" || nombre[id] == "Clean Feed 4\0" || nombre[id] == "Preview\0" || nombre[id] == "Program\0" || nombre[id] == "Media Player 1\0" || nombre[id] == "Media Player 2\0" || nombre[id] == "Media Player 3\0" || nombre[id] == "Media Player 4\0" || nombre[id] == "Media Player 1 Key\0" || nombre[id] == "Media Player 2 Key\0"  || nombre[id] == "Media Player 3 Key\0" || nombre[id] == "Media Player 4 Key\0" || nombre[id] == "ME 1 Key 1 Mask\0" || nombre[id] == "ME 1 Key 2 Mask\0" || nombre[id] == "ME 1 Key 3 Mask\0" || nombre[id] == "ME 1 Key 4 Mask\0" || nombre[id] == "ME 2 Key 1 Mask\0" || nombre[id] == "ME 2 Key 2 Mask\0" || nombre[id] == "ME 2 Key 3 Mask\0" || nombre[id] == "ME 2 Key 4 Mask\0" || nombre[id] == "ME 3 Key 1 Mask\0" || nombre[id] == "ME 3 Key 2 Mask\0" || nombre[id] == "ME 3 Key 3 Mask\0" || nombre[id] == "ME 3 Key 4 Mask\0" || nombre[id] == "ME 4 Key 1 Mask\0" || nombre[id] == "ME 4 Key 2 Mask\0" || nombre[id] == "ME 4 Key 3 Mask\0" || nombre[id] == "ME 4 Key 4 Mask\0" || nombre[id] == "DSK 1 Mask\0" || nombre[id] == "DSK 2 Mask\0" || nombre[id] == "DSK 3 Mask\0" || nombre[id] == "DSK 4 Mask\0" || nombre[id] == "SuperSource 1\0" || nombre[id] == "SuperSource 2\0" || nombre[id] == "ME 1 PGM\0" || nombre[id] == "ME 1 PVW\0" || nombre[id] == "ME 2 PGM\0" || nombre[id] == "ME 2 PVW\0" || nombre[id] == "ME 3 PGM\0" || nombre[id] == "ME 3 PVW\0" || nombre[id] == "ME 4 PGM\0" || nombre[id] == "ME 4 PVW\0"){
+            if(nombre[id] == "ME 1 PGM\0"){
+                return "0000000000000009000ce50b4341755301\(put)271a"
+            }
+            if(nombre[id] == "ME 1 PVW\0"){
+                return "0000000000000009000ce50b4341755301\(put)271b"
+            }
+            if(nombre[id] == "ME 2 PGM\0"){
+                return "0000000000000009000ce50b4341755301\(put)2724"
+            }
+            if(nombre[id] == "ME 2 PVW\0"){
+                return "0000000000000009000ce50b4341755301\(put)2725"
+            }
+            if(nombre[id] == "ME 3 PGM\0"){
+                return "0000000000000009000ce50b4341755301\(put)272e"
+            }
+            if(nombre[id] == "ME 3 PVW\0"){
+                return "0000000000000009000ce50b4341755301\(put)272f"
+            }
+            if(nombre[id] == "ME 4 PGM\0"){
+                return "0000000000000009000ce50b4341755301\(put)2738"
+            }
+            if(nombre[id] == "ME 4 PVW\0"){
+                return "0000000000000009000ce50b4341755301\(put)2739"
+            }
+            if(nombre[id] == "SuperSource 1\0"){
+                return "0000000000000009000ce50b4341755301\(put)1770"
+            }
+            if(nombre[id] == "SuperSource 2\0"){
+                return "0000000000000009000ce50b4341755301\(put)1771"
+            }
             if(nombre[id] == "Color Bars\0"){
                 
                 return "0000000000000009000ce50b4341755301\(put)03e8"
+            }
+            if(nombre[id] == "Media Player 1\0"){
+                
+                return "0000000000000009000ce50b4341755301\(put)0bc2"
+            }
+            if(nombre[id] == "Media Player 2\0"){
+                
+                return "0000000000000009000ce50b4341755301\(put)0bcc"
+            }
+            if(nombre[id] == "Media Player 3\0"){
+                
+                return "0000000000000009000ce50b4341755301\(put)0bd6"
+            }
+            if(nombre[id] == "Media Player 4\0"){
+                
+                return "0000000000000009000ce50b4341755301\(put)0be0"
+            }
+            if(nombre[id] == "Media Player 1 Key\0"){
+                
+                return "0000000000000009000ce50b4341755301\(put)0bc3"
+            }
+            if(nombre[id] == "Media Player 2 Key\0"){
+                
+                return "0000000000000009000ce50b4341755301\(put)0bcd"
+            }
+            if(nombre[id] == "Media Player 3 Key\0"){
+                
+                return "0000000000000009000ce50b4341755301\(put)0bd7"
+            }
+            if(nombre[id] == "Media Player 4 Key\0"){
+                
+                return "0000000000000009000ce50b4341755301\(put)0be1"
+            }
+            if(nombre[id] == "ME 1 Key 1 Mask\0"){
+                
+                return "0000000000000009000ce50b4341755301\(put)0faa"
+            }
+            if(nombre[id] == "ME 1 Key 2 Mask\0"){
+                
+                return "0000000000000009000ce50b4341755301\(put)0fb4"
+            }
+            if(nombre[id] == "ME 1 Key 3 Mask\0"){
+                
+                return "0000000000000009000ce50b4341755301\(put)0fbe"
+            }
+            if(nombre[id] == "ME 1 Key 4 Mask\0"){
+                
+                return "0000000000000009000ce50b4341755301\(put)0fc8"
+            }
+            if(nombre[id] == "ME 2 Key 1 Mask\0"){
+                
+                return "0000000000000009000ce50b4341755301\(put)0fd2"
+            }
+            if(nombre[id] == "ME 2 Key 2 Mask\0"){
+                
+                return "0000000000000009000ce50b4341755301\(put)0fdc"
+            }
+            if(nombre[id] == "ME 2 Key 3 Mask\0"){
+                
+                return "0000000000000009000ce50b4341755301\(put)0fe6"
+            }
+            if(nombre[id] == "ME 2 Key 4 Mask\0"){
+                
+                return "0000000000000009000ce50b4341755301\(put)0ff0"
+            }
+            if(nombre[id] == "ME 3 Key 1 Mask\0"){
+                
+                return "0000000000000009000ce50b4341755301\(put)0ffa"
+            }
+            if(nombre[id] == "ME 3 Key 2 Mask\0"){
+                
+                return "0000000000000009000ce50b4341755301\(put)1004"
+            }
+            if(nombre[id] == "ME 3 Key 3 Mask\0"){
+                
+                return "0000000000000009000ce50b4341755301\(put)100e"
+            }
+            if(nombre[id] == "ME 3 Key 4 Mask\0"){
+                
+                return "0000000000000009000ce50b4341755301\(put)1018"
+            }
+            if(nombre[id] == "ME 4 Key 1 Mask\0"){
+                
+                return "0000000000000009000ce50b4341755301\(put)1022"
+            }
+            if(nombre[id] == "ME 4 Key 2 Mask\0"){
+                
+                return "0000000000000009000ce50b4341755301\(put)102c"
+            }
+            if(nombre[id] == "ME 4 Key 3 Mask\0"){
+                
+                return "0000000000000009000ce50b4341755301\(put)1036"
+            }
+            if(nombre[id] == "ME 4 Key 4 Mask\0"){
+                
+                return "0000000000000009000ce50b4341755301\(put)1040"
+            }
+            if(nombre[id] == "DSK 1 Mask\0"){
+                
+                return "0000000000000009000ce50b4341755301\(put)1392"
+            }
+            if(nombre[id] == "DSK 2 Mask\0"){
+                
+                return "0000000000000009000ce50b4341755301\(put)139c"
+            }
+            if(nombre[id] == "DSK 3 Mask\0"){
+                
+                return "0000000000000009000ce50b4341755301\(put)13a6"
+            }
+            if(nombre[id] == "DSK 4 Mask\0"){
+                
+                return "0000000000000009000ce50b4341755301\(put)13b0"
             }
             if(nombre[id] == "Color 1\0"){
                 
