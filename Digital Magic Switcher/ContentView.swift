@@ -120,7 +120,8 @@ struct ContentView: View {
                                         name = nombre
                                         numeroChannel = canales.count - 4
                                         self.canales.removeAll{ value in
-                                            return value.contains("Aux") || value.contains("Out")
+                                            return value.contains("Aux") || value.contains("Out") || value.contains("DK") || value.contains("M/E") || value.contains("CFD") || value.contains("SSR") || value.contains("PVW1") || value.contains("PVM2") || value.contains("PVM3")
+                                                || value.contains("PVW3") || value.contains("AUX") || value.contains("PVW2")
                                         }
                                         self.next.toggle()
                                     }
@@ -174,13 +175,14 @@ struct ContentView: View {
                                     if (self.contAux>self.aux.count-1){
                                         self.contAux=1
                                     }
-                                    
+                                    var t = 0
                                     
                                     print(nombre.count)
                                     name = nombre
                                     numeroChannel = canales.count - 4
                                     self.canales.removeAll{ value in
-                                        return value.contains("Aux") || value.contains("Out")
+                                        return value.contains("Aux") || value.contains("Out") || value.contains("DK") || value.contains("M/E") || value.contains("CFD") || value.contains("SSR") || value.contains("PVW1") || value.contains("PVM2") || value.contains("PVM3")
+                                            || value.contains("PVW3") || value.contains("AUX") || value.contains("PVW2")
                                     }
                                     
                                     self.next.toggle()

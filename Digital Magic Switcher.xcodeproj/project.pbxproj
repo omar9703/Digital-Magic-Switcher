@@ -390,7 +390,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Digital Magic Switcher/Preview Content\"";
-				DEVELOPMENT_TEAM = QQ7775C3S7;
+				DEVELOPMENT_TEAM = P58D3MWKZ5;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "Digital Magic Switcher/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -398,7 +398,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.pruebas.Digital-Magic-Switcher";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.avs.Digital-Magic-Switcher";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 2;
@@ -413,7 +413,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Digital Magic Switcher/Preview Content\"";
-				DEVELOPMENT_TEAM = QQ7775C3S7;
+				DEVELOPMENT_TEAM = P58D3MWKZ5;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "Digital Magic Switcher/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -421,7 +421,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.pruebas.Digital-Magic-Switcher";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.avs.Digital-Magic-Switcher";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 2;

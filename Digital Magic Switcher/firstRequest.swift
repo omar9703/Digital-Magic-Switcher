@@ -58,6 +58,7 @@ func getName(ip :String,completionHandler: (String,[String]) -> Void){
         for x in Range(100...numberOfReadBytes){
             if(String(bytes: buffer[x...x+3], encoding: .utf8) == "InPr" )
             {
+                
                 for y in Range((x+6)...(x+25)){
                     
                     if(buffer[y] == UInt8(0))
@@ -77,6 +78,7 @@ func getName(ip :String,completionHandler: (String,[String]) -> Void){
         for x in Range(0...numberOfReadBytes){
                 if(String(bytes: buf2[x...(x+3)], encoding: .utf8) == "InPr" )
                 {
+                 
                     for y in Range((x+6)...(x+29)){
                         
                         if(buf2[y] == UInt8(0))
@@ -92,6 +94,7 @@ func getName(ip :String,completionHandler: (String,[String]) -> Void){
             for x in Range(0...numberOfReadBytes){
                     if(String(bytes: buf3[x...(x+3)], encoding: .utf8) == "InPr" )
                     {
+                        
                         for y in Range((x+6)...(x+29)){
                             
                             if(buf3[y] == UInt8(0))
@@ -109,6 +112,7 @@ func getName(ip :String,completionHandler: (String,[String]) -> Void){
             for x in Range(0...numberOfReadBytes){
                     if(String(bytes: buf4[x...(x+3)], encoding: .utf8) == "InPr" )
                     {
+                        print(buf4[x+4...x+5])
                         for y in Range((x+6)...(x+29)){
                             
                             if(buf4[y] == UInt8(0))
@@ -141,6 +145,9 @@ func getName(ip :String,completionHandler: (String,[String]) -> Void){
     }
 }
     if complete{
+         var t = 0
+        
+        
         completionHandler(cadena,nombres)
     }
     else{
