@@ -287,6 +287,8 @@ struct boton: View{
                 sigue = true
                 let client = try Socket(.inet, type: .datagram, protocol: .udp)
                 try client.connect(port: 9910, address: self.ip)
+                try client.set(option: .receiveTimeout, TimeValue(seconds: 0, milliseconds:100))
+                try client.set(option: .sendTimeout, TimeValue(seconds: 0, milliseconds:100))
                 //print("s1")
                 let wread = try client.wait(for: .read, timeout: 0.1)
                 //print("s2")
@@ -299,11 +301,10 @@ struct boton: View{
                 
                 buf = stringToBytes("800c310a0000000000780000")
                 try client.write(buf!)
-                try client.set(option: .receiveTimeout, TimeValue(seconds: 0, milliseconds:50))
-                try client.set(option: .sendTimeout, TimeValue(seconds: 0, milliseconds:50))
+                
                 var x = 0
                 var veinte = 0
-                
+                print("pop")
                 while x<21 {
                     x+=1
                     buffer = [UInt8](repeating: 0, count: 1500)
@@ -399,8 +400,6 @@ struct boton: View{
                     try client.write(d3)
                     buffer = [UInt8](repeating: 0, count: 100)
                     numberOfReadBytes = try client.read(&buffer, size: 100)
-                    
-                    
                     data = stringToBytes("0814")
                     d2 = stringToBytes("000000000000000800012aff54695271")
                     d3 = data! + d1 + d2!
@@ -411,26 +410,19 @@ struct boton: View{
                     try client.write(d3)
                     buffer = [UInt8](repeating: 0, count: 100)
                     numberOfReadBytes = try client.read(&buffer, size: 100)
-                    
                     buffer = [UInt8](repeating: 0, count: 100)
                     numberOfReadBytes = try! client.read(&buffer, size: 100)
                     break
                 }
                 client.close()
             }
-            
             //print("hecho", num)
             completionHandler()
         }
         catch let error as NSError{
-            
             print("error",error.localizedDescription)
             completionHandler()
-            
         }
-        
-        
-        
     }
     func checkLengthChannel(_ valor:Int) -> String{
         let l = String(valor)

@@ -16,9 +16,7 @@ struct AuxiliarView: View {
         Picker(selection: $indexAux, label: Text("seleccione un Auxiliar")) {
                     ForEach(0 ..< aux.count) {
                        Text(self.aux[$0])
-                        
                     }
-            
         }
     }
     }
