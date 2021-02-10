@@ -287,12 +287,10 @@ struct boton: View{
                 sigue = true
                 let client = try Socket(.inet, type: .datagram, protocol: .udp)
                 try client.connect(port: 9910, address: self.ip)
-                try client.set(option: .receiveTimeout, TimeValue(seconds: 0, milliseconds:100))
-                try client.set(option: .sendTimeout, TimeValue(seconds: 0, milliseconds:100))
-                //print("s1")
-                let wread = try client.wait(for: .read, timeout: 0.1)
-                //print("s2")
-                let wwrite = try client.wait(for: .write, timeout: 0.1)
+                try client.set(option: .receiveTimeout, TimeValue(seconds: 0, milliseconds:300))
+                try client.set(option: .sendTimeout, TimeValue(seconds: 0, milliseconds:300))
+                print("s1")
+               
                 //print("s3")
                 var buf = stringToBytes("1014310a00000000002a00000100000000000000")
                 try client.write(buf!)
@@ -384,7 +382,7 @@ struct boton: View{
                     data = stringToBytes("0814")
                     d2 = stringToBytes("000000000000000600086cf154695271")
                     d3 = data! + d1 + d2!
-                    try! client.write(d3)
+                    try client.write(d3)
                     buffer = [UInt8](repeating: 0, count: 100)
                     numberOfReadBytes = try client.read(&buffer, size: 100)
                     
@@ -411,7 +409,7 @@ struct boton: View{
                     buffer = [UInt8](repeating: 0, count: 100)
                     numberOfReadBytes = try client.read(&buffer, size: 100)
                     buffer = [UInt8](repeating: 0, count: 100)
-                    numberOfReadBytes = try! client.read(&buffer, size: 100)
+                    numberOfReadBytes = try client.read(&buffer, size: 100)
                     break
                 }
                 client.close()
