@@ -145,7 +145,7 @@ func getName(ip :String,completionHandler: (String,[String]) -> Void){
     }
 }
     if complete{
-         var t = 0
+        
         
         
         completionHandler(cadena,nombres)

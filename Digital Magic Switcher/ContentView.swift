@@ -95,14 +95,14 @@ struct ContentView: View {
                                 self.cargando.toggle()
                                 getName(ip: self.ip, completionHandler:{ (nombre, canales) in
                                     print(nombre,canales.count)
+                                    self.aux.removeAll()
                                     if(nombre != "error") {
                                         self.canales = canales
-                                        self.aux.removeAll()
-                                        self.collection = [10:"03e8",11:"2",12:"3"]
+                                        self.collection = [11:"03e8",12:"2",13:"3"]
                                         var cont = 0
                                         for x in Range(0...self.canales.count-1)
                                         {
-                                            if (self.canales[x].contains("Aux") || self.canales[x].contains("Output")){
+                                            if (self.canales[x].contains("Auxiliary") || self.canales[x].contains("Output")){
                                                 print(self.canales[x])
                                                 cont += 1
                                                 self.aux.append(self.canales[x])
@@ -116,6 +116,7 @@ struct ContentView: View {
                                             self.contAux=1
                                         }
                                         
+                                        
                                         print(nombre.count)
                                         name = nombre
                                         numeroChannel = canales.count - 4
@@ -123,6 +124,7 @@ struct ContentView: View {
                                             return value.contains("Aux") || value.contains("Out") || value.contains("DK") || value.contains("M/E") || value.contains("CFD") || value.contains("SSR") || value.contains("PVW1") || value.contains("PVM2") || value.contains("PVM3")
                                                 || value.contains("PVW3") || value.contains("AUX") || value.contains("PVW2")
                                         }
+                                        
                                         self.next.toggle()
                                     }
                                     else{
@@ -156,6 +158,7 @@ struct ContentView: View {
                             self.cargando.toggle()
                             getName(ip: self.ip, completionHandler:{ (nombre, canales) in
                                 print(nombre,canales.count)
+                                self.aux.removeAll()
                                 if(nombre != "error") {
                                     self.canales = canales
                                     self.collection = [11:"03e8",12:"2",13:"3"]
@@ -175,7 +178,7 @@ struct ContentView: View {
                                     if (self.contAux>self.aux.count-1){
                                         self.contAux=1
                                     }
-                                    var t = 0
+                                   
                                     
                                     print(nombre.count)
                                     name = nombre
