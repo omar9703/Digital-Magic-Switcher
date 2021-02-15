@@ -63,8 +63,11 @@ func getName(ip :String,completionHandler: (String,[String]) -> Void){
                     
                     if(buffer[y] == UInt8(0))
                     {
+                        if(String(bytes: buf4[x+6...y], encoding: .utf8)!.count > 4)
+                        {
                         nombres.append(String(bytes: buffer[x+6...y], encoding: .utf8)!)
                         break
+                        }
                     }
                     
                 }
@@ -83,8 +86,11 @@ func getName(ip :String,completionHandler: (String,[String]) -> Void){
                         
                         if(buf2[y] == UInt8(0))
                         {
+                            if(String(bytes: buf4[x+6...y], encoding: .utf8)!.count > 4)
+                            {
                             nombres.append(String(bytes: buf2[x+6...y], encoding: .utf8)!)
                             break
+                            }
                         }
                         
                     }
@@ -99,8 +105,11 @@ func getName(ip :String,completionHandler: (String,[String]) -> Void){
                             
                             if(buf3[y] == UInt8(0))
                             {
+                                if(String(bytes: buf4[x+6...y], encoding: .utf8)!.count > 4)
+                                {
                                 nombres.append(String(bytes: buf3[x+6...y], encoding: .utf8)!)
                                 break
+                                }
                             }
                             
                         }
@@ -117,8 +126,11 @@ func getName(ip :String,completionHandler: (String,[String]) -> Void){
                             
                             if(buf4[y] == UInt8(0))
                             {
+                                if(String(bytes: buf4[x+6...y], encoding: .utf8)!.count > 4)
+                                {
                                 nombres.append(String(bytes: buf4[x+6...y], encoding: .utf8)!)
                                 break
+                                }
                             }
                             
                         }
