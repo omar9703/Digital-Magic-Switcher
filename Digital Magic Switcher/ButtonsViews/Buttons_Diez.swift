@@ -264,6 +264,9 @@ struct boton: View{
                 
                 
             }
+            else{
+                sem.signal()
+            }
             
         }
         )

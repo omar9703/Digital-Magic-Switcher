@@ -12,7 +12,7 @@ struct AuxiliarView: View {
     @Binding var indexAux : Int
     var body: some View {
         VStack{
-        Text("Version 1.1.9")
+        Text("Version 1.2.1")
         Picker(selection: $indexAux, label: Text("seleccione un Auxiliar")) {
                     ForEach(0 ..< aux.count) {
                        Text(self.aux[$0])
