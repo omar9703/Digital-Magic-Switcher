@@ -122,7 +122,7 @@ struct ContentView: View {
                                         numeroChannel = canales.count - 4
                                         self.canales.removeAll{ value in
                                             return value.contains("Aux") || value.contains("Out") || value.contains("DK") || value.contains("M/E") || value.contains("CFD") || value.contains("SSR") || value.contains("PVW1") || value.contains("PVM2") || value.contains("PVM3")
-                                                || value.contains("PVW3") || value.contains("AUX") || value.contains("PVW2")
+                                                || value.contains("PVW3") || value.contains("AUX") || value.contains("PVW2") || value.count < 4
                                         }
                                         
                                         self.next.toggle()
