@@ -245,13 +245,16 @@ struct boton: View{
             {
                 
                
-                    sendData{
-                    
+                sendData { (respuesta) in
+                    print(respuesta)
                     for x in Range(0...39)
                     {
                         if (x==num-1)
                         {
-                            buttons[x] = true
+                            if(respuesta=="hecho")
+                            {
+                                buttons[x] = true
+                            }
                             
                         }
                         else{
@@ -281,7 +284,7 @@ struct boton: View{
         }
         
     }
-    func sendData(completionHandler: ()->()){
+    func sendData(completionHandler: (String)->()){
         var sigue = true
         
         
@@ -420,11 +423,11 @@ struct boton: View{
                 client.close()
             }
             //print("hecho", num)
-            completionHandler()
+            completionHandler("hecho")
         }
         catch let error as NSError{
             print("error",error.localizedDescription)
-            completionHandler()
+            completionHandler("error")
         }
     }
     func checkLengthChannel(_ valor:Int) -> String{
