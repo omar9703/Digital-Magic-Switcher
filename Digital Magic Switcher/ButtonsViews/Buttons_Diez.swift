@@ -293,10 +293,9 @@ struct boton: View{
                 sigue = true
                 let client = try Socket(.inet, type: .datagram, protocol: .udp)
                 try client.connect(port: 9910, address: self.ip)
-                let u = try client.wait(for: .read, timeout: 0.1)
-                let f = try client.wait(for: .write, timeout: 0.1)
-                try client.set(option: .receiveTimeout, TimeValue(seconds: 0, milliseconds:300))
-                try client.set(option: .sendTimeout, TimeValue(seconds: 0, milliseconds:300))
+                
+                try client.set(option: .receiveTimeout, TimeValue(seconds: 0, milliseconds:500))
+                try client.set(option: .sendTimeout, TimeValue(seconds: 0, milliseconds:500))
                 print("s1")
                
                 
