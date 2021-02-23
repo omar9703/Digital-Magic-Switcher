@@ -286,12 +286,13 @@ struct boton: View{
     }
     func sendData(completionHandler: (String)->()){
         var sigue = true
-        
+        var client = try! Socket(.inet, type: .datagram, protocol: .udp)
         
         do{
             while true{
+                client = try Socket(.inet, type: .datagram, protocol: .udp)
                 sigue = true
-                let client = try Socket(.inet, type: .datagram, protocol: .udp)
+                
                 try client.connect(port: 9910, address: self.ip)
                 
                 try client.set(option: .receiveTimeout, TimeValue(seconds: 0, milliseconds:500))
@@ -426,6 +427,7 @@ struct boton: View{
         }
         catch let error as NSError{
             print("error",error.localizedDescription)
+            client.close()
             completionHandler("error")
         }
     }
