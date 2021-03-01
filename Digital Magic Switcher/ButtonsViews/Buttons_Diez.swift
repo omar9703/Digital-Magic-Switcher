@@ -240,10 +240,10 @@ struct boton: View{
     @Binding var disable : [Bool]
     var body : some View{
         Button(action:{
-            sem.wait()
+            id = id>nombre.count-1 ? 0 : id
             if(activo )
             {
-                
+               sem.wait()
                
                 sendData { (respuesta) in
                     print(respuesta)
@@ -267,9 +267,9 @@ struct boton: View{
                 
                 
             }
-            else{
-                sem.signal()
-            }
+//            else{
+//                sem.signal()
+//            }
             
         }
         )
@@ -295,13 +295,14 @@ struct boton: View{
                 
                 try client.connect(port: 9910, address: self.ip)
                 
-                try client.set(option: .receiveTimeout, TimeValue(seconds: 0, milliseconds:500))
-                try client.set(option: .sendTimeout, TimeValue(seconds: 0, milliseconds:500))
+                try client.set(option: .receiveTimeout, TimeValue(seconds: 0, milliseconds:400))
+                try client.set(option: .sendTimeout, TimeValue(seconds: 0, milliseconds:400))
                 print("s1")
                
                 
                 var buf = stringToBytes("1014310a00000000002a00000100000000000000")
                 try client.write(buf!)
+                print("s2")
                 var buffer = [UInt8](repeating: 0, count: 100)
                 var numberOfReadBytes = try client.read(&buffer, size: 100)
                 print("s3")
@@ -340,13 +341,13 @@ struct boton: View{
                     d3 = data! + d1 + d2!
                     try client.write(d3)
                     buffer = [UInt8](repeating: 0, count: 80)
-                    numberOfReadBytes = try! client.read(&buffer, size: 80)
+                    _ = try client.read(&buffer, size: 80)
                     data = stringToBytes("0818")
                     d2 = stringToBytes("0000000000d70002000c18ea56754d6f0064de05")
                     d3 = data! + d1 + d2!
                     try client.write(d3)
                     buffer = [UInt8](repeating: 0, count: 100)
-                    numberOfReadBytes = try! client.read(&buffer, size: 100)
+                    _ = try client.read(&buffer, size: 100)
                     
                     
                     data = stringToBytes("0824")
@@ -354,7 +355,7 @@ struct boton: View{
                     d3 = data! + d1 + d2!
                     try client.write(d3)
                     buffer = [UInt8](repeating: 0, count: 100)
-                    numberOfReadBytes = try client.read(&buffer, size: 100)
+                    _ = try client.read(&buffer, size: 100)
                     
                     
                     data = stringToBytes("0d8c")
@@ -366,25 +367,25 @@ struct boton: View{
                     d2 = stringToBytes("00000000003e0005001000004343646f0106080501000000001000004343646f01060806017f00000020000043436d6407040400010000010000000000002a2f0000000000000000001000004343646f0107010d01000000001000004343646f0107010101000000001000004343646f0107010201000000001000004343646f0107010501000000001000004343646f0107010801000000001000004343646f0107040401000000001000004343646f0107080001000000001000004343646f0107080101000000001000004343646f0107080201000000001000004343646f0107080301000000001000004343646f0107080401000000001000004343646f0107080501000000001000004343646f01070806017f00000020000043436d6408040400010000010000000000002a2f0000000000000000001000004343646f0108010d01000000001000004343646f0108010101000000001000004343646f0108010201000000001000004343646f0108010501000000001000004343646f0108010801000000001000004343646f0108040401000000001000004343646f0108080001000000001000004343646f0108080101000000001000004343646f0108080201000000001000004343646f0108080301000000001000004343646f0108080401000000001000004343646f0108080501000000001000004343646f01080806017f00000020000043436d6409040400010000010000000000002a2f0000000000000000001000004343646f0109010d01000000001000004343646f0109010101000000001000004343646f0109010201000000001000004343646f0109010501000000001000004343646f0109010801000000001000004343646f0109040401000000001000004343646f0109080001000000001000004343646f0109080101000000001000004343646f0109080201000000001000004343646f0109080301000000001000004343646f0109080401000000001000004343646f0109080501000000001000004343646f01090806017f00000020000043436d640a040400010000010000000000002a2f0000000000000000001000004343646f010a010d01000000001000004343646f010a010101000000001000004343646f010a010201000000001000004343646f010a010501000000001000004343646f010a010801000000001000004343646f010a040401000000001000004343646f010a080001000000001000004343646f010a080101000000001000004343646f010a080201000000001000004343646f010a080301000000001000004343646f010a080401000000001000004343646f010a080501000000001000004343646f010a0806017f0000")
                     d3 = data! + d1 + d2!
                     try client.write(d3)
+                    print("pedo")
+                    buffer = [UInt8](repeating: 0, count: 1500)
+                    _ = try client.read(&buffer, size: 1500)
                     
                     buffer = [UInt8](repeating: 0, count: 1500)
-                    numberOfReadBytes = try client.read(&buffer, size: 1500)
+                    _ = try client.read(&buffer, size: 1500)
                     
                     buffer = [UInt8](repeating: 0, count: 1500)
-                    numberOfReadBytes = try client.read(&buffer, size: 1500)
+                    _ = try client.read(&buffer, size: 1500)
                     
                     buffer = [UInt8](repeating: 0, count: 1500)
-                    numberOfReadBytes = try client.read(&buffer, size: 1500)
-                    
-                    buffer = [UInt8](repeating: 0, count: 1500)
-                    numberOfReadBytes = try client.read(&buffer, size: 1500)
+                    _ =  try client.read(&buffer, size: 1500)
                     
                     data = stringToBytes("800c")
                     d2 = stringToBytes("001a0000004800")
                     d3 = data! + d1 + d2!
                     try client.write(d3)
                     buffer = [UInt8](repeating: 0, count: 100)
-                    numberOfReadBytes = try client.read(&buffer, size: 100)
+                    _ = try client.read(&buffer, size: 100)
                     
                     
                     data = stringToBytes("0814")
@@ -392,20 +393,20 @@ struct boton: View{
                     d3 = data! + d1 + d2!
                     try client.write(d3)
                     buffer = [UInt8](repeating: 0, count: 100)
-                    numberOfReadBytes = try client.read(&buffer, size: 100)
+                    _ = try client.read(&buffer, size: 100)
                     
                     
                     data = stringToBytes("800c")
                     d2 = stringToBytes("001b0000004800")
                     d3 = data! + d1 + d2!
                     try client.write(d3)
-                    
+                    print("rola")
                     data = stringToBytes("0814")
                     d2 = stringToBytes("000000000000000700012aff54695271")
                     d3 = data! + d1 + d2!
                     try client.write(d3)
                     buffer = [UInt8](repeating: 0, count: 100)
-                    numberOfReadBytes = try client.read(&buffer, size: 100)
+                    _ = try client.read(&buffer, size: 100)
                     data = stringToBytes("0814")
                     d2 = stringToBytes("000000000000000800012aff54695271")
                     d3 = data! + d1 + d2!
@@ -415,14 +416,22 @@ struct boton: View{
                     d3 = data! + d1 + d2!
                     try client.write(d3)
                     buffer = [UInt8](repeating: 0, count: 100)
-                    numberOfReadBytes = try client.read(&buffer, size: 100)
+                    _ = try client.read(&buffer, size: 100)
                     buffer = [UInt8](repeating: 0, count: 100)
-                    numberOfReadBytes = try client.read(&buffer, size: 100)
+                    _ = try client.read(&buffer, size: 100)
+//                    data = stringToBytes("7c2e0d0a24e108f8bc754134080045000158a6b2000040114ec1c0a8018ac0a80147d10d26b60144852f093c80bc000000000000001e0010ffff52414d5002490009a87f00000010ffff52414d50029a000aa87f00000010ffff52414d5002ea000ba87f00000010ffff52414d50023b000ca87f00000010ffff52414d50028c000da87f00000010ffff52414d5002dc000ea87f00000010ffff52414d50022d000fa87f00000010ffff52414d5002800010a87f00000010ffff52414d5002d10011a87f00000010ffff52414d5002210012a87f00000010ffff52414d5002720013a87f00000010ffff52414d5002c30014a87f00000010ffff52414d50021507d1a87f00000010ffff52414d50026007d2a87f00000010ffff52414d5002af07d3a87f00000010ffff52414d5002fe07d4a87f0000001000052414d5004bc6426017f00000010ffff52414d50024d04b1a87f00000010ffff52414d50029b03e9a87f0000")
+//                    try client.write(data!)
                     break
                 }
-                client.close()
+                else
+                {
+                    client.close()
+                    completionHandler("error")
+                }
+                
             }
             //print("hecho", num)
+            client.close()
             completionHandler("hecho")
         }
         catch let error as NSError{
@@ -432,7 +441,7 @@ struct boton: View{
         }
     }
     func checkLengthChannel(_ valor:Int) -> String{
-        let l = String(valor)
+        
         
         var put = ""
         let out = String(aux,radix: 16)

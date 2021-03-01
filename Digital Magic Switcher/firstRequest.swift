@@ -36,13 +36,13 @@ func getName(ip :String,completionHandler: (String,[String]) -> Void){
     buffer = [UInt8](repeating: 0, count: 2000)
     numberOfReadBytes = try! client.read(&buffer, size: 2000)
     var buf2 = [UInt8](repeating: 0, count: 2000)
-    try client.read(&buf2,size: 2000)
+    _ = try client.read(&buf2,size: 2000)
     var buf3 = [UInt8](repeating: 0, count: 2000)
-    try client.read(&buf3,size: 2000)
+    _ = try client.read(&buf3,size: 2000)
     var buf4 = [UInt8](repeating: 0, count: 2000)
-    try client.read(&buf4,size: 2000)
+    _ = try client.read(&buf4,size: 2000)
         var buf5 = [UInt8](repeating: 0, count: 2000)
-        try client.read(&buf5,size: 2000)
+    _ = try client.read(&buf5,size: 2000)
     var cont = 0
         print(numberOfReadBytes)
     for x in Range(32...110){
